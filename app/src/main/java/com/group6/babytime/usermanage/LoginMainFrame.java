@@ -8,6 +8,11 @@ import android.view.Window;
 import android.widget.Button;
 
 import com.group6.babytime.R;
+import com.group6.babytime.constant.APPConstants;
+import com.sina.weibo.sdk.auth.AuthInfo;
+import com.sina.weibo.sdk.auth.Oauth2AccessToken;
+import com.sina.weibo.sdk.auth.WeiboAuthListener;
+import com.sina.weibo.sdk.auth.sso.SsoHandler;
 
 public class LoginMainFrame extends AppCompatActivity {
 
@@ -16,6 +21,13 @@ public class LoginMainFrame extends AppCompatActivity {
     private Button qq_btn;
     private Button weibo_btn;
     private Button weixin_btn;
+
+    APPConstants constants=new APPConstants();
+    //微博部分
+    private SsoHandler mSsoHandler;
+    private AuthInfo mAuthInfo;
+    private Oauth2AccessToken mAccessToken;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,6 +58,9 @@ public class LoginMainFrame extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+
     }
+
 
 }

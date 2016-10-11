@@ -25,6 +25,7 @@
         <activity android:name=".usermanage.Login" />
         <activity android:name=".usermanage.Register" />
         <activity android:name=".usermanage.Nickname"/>
+
     </application>
 
 </manifest>

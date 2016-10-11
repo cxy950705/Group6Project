@@ -25,6 +25,12 @@
         <activity android:name=".usermanage.Login" />
         <activity android:name=".usermanage.Register" />
         <activity android:name=".usermanage.Nickname"/>
+        <activity
+            android:name="com.sina.weibo.sdk.component.WeiboSdkBrowser"
+            android:configChanges="keyboardHidden|orientation"
+            android:windowSoftInputMode="adjustResize"
+            android:exported="false" >
+        </activity>
 
     </application>
 

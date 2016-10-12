@@ -21,15 +21,19 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".usermanage.LoginMainFrame">
+
+        </activity>
+        <activity android:name=".usermanage.Login" />
+        <activity android:name=".usermanage.Register" />
+        <activity android:name=".usermanage.Nickname"/>
+        >
+        <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".usermanage.Login" />
-        <activity android:name=".usermanage.Register" />
-        <activity android:name=".usermanage.Nickname"/>
         <activity
             android:name="com.sina.weibo.sdk.component.WeiboSdkBrowser"
             android:configChanges="keyboardHidden|orientation"
@@ -46,7 +50,8 @@
                 <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.BROWSABLE" />
 
-                <data android:scheme="1105673857" /> >
+                <data android:scheme="1105673857" />
+                >
             </intent-filter>
         </activity>
         <activity

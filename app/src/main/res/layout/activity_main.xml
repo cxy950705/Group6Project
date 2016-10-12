@@ -3,14 +3,33 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingBottom="16dp"
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.group6.babytime.MainActivity">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!" />
+    <FrameLayout
+           android:id="@+id/maincontent"
+             android:layout_width="fill_parent"
+             android:layout_height="0dp"
+            android:layout_weight="1" >
+    </FrameLayout>
+
+         <!-- 底层菜单 -->
+
+         <android.support.v4.app.FragmentTabHost
+            android:id="@android:id/tabhost"
+            android:layout_width="fill_parent"
+             android:layout_height="wrap_content"
+             android:layout_alignParentBottom="true"
+            >
+
+             <FrameLayout
+                 android:id="@android:id/tabcontent"
+                 android:layout_width="0dp"
+                 android:layout_height="0dp"
+                 android:layout_weight="0" >
+             </FrameLayout>
+         </android.support.v4.app.FragmentTabHost>
 </RelativeLayout>

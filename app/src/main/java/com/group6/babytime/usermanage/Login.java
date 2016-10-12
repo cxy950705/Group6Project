@@ -10,6 +10,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 
+import com.group6.babytime.MainActivity;
 import com.group6.babytime.R;
 
 import org.xutils.common.Callback;
@@ -79,8 +80,12 @@ public class Login extends AppCompatActivity {
 
             @Override
             public void onSuccess(String result) {
-                if(result.equals("登录成功"))
+                if(result.equals("登录成功")){
                     Toast.makeText(x.app(), "登录成功", Toast.LENGTH_SHORT).show();
+                    Intent intent=new Intent(Login.this, MainActivity.class);
+                    startActivity(intent);
+                }
+
                 else
                     Toast.makeText(x.app(), "登录失败", Toast.LENGTH_SHORT).show();
             }

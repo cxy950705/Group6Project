@@ -10,50 +10,77 @@ import android.widget.Toast;
 
 
 import com.group6.babytime.R;
+import com.group6.babytime.utils.StringUtils;
 
 import org.xutils.common.Callback;
 import org.xutils.http.RequestParams;
 import org.xutils.x;
 
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
-public class Register extends AppCompatActivity {
+
+public class Register extends AppCompatActivity implements View.OnClickListener{
 
     private EditText phone_number;
     private EditText input_password;
+
     private Button register_btn;
+    private Button validate_code_btn;
+
+    public boolean isChanged=false;
+    private boolean tag=true;
+    private int TIME_LOOP=60;//设定短信60S一次发送
+    Thread thread=null;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
+        initview();//初始化页面
+
+    }
+
+    /**
+     * 初始化页面
+     */
+    public void initview(){
         phone_number = ((EditText) findViewById(R.id.phone_number));
         input_password = ((EditText) findViewById(R.id.input_password));
         register_btn = ((Button) findViewById(R.id.register_btn));
-
-        register_btn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if(Validate()){
-                    register();
-                }else {
-                    Toast.makeText(Register.this, "注册信息不合法", Toast.LENGTH_SHORT).show();
-                }
-
-            }
-        });
-
-
+        validate_code_btn = ((Button) findViewById(R.id.validate_code_btn));
     }
 
-    private boolean Validate(){
-        if(!isMobileNum(phone_number.getText().toString().trim()) || (input_password.getText().toString().length()<8
-                || input_password.getText().toString().length()>24)) {
-            return false;
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()){
+            case R.id.validate_code_btn:
+                if(!isVaildate())
+                    break;
+                validate_code_btn.setText("获取验证码");
+                validate_code_btn.setClickable(true);
+                break;
+
         }
-        return true;
     }
+
+
+
+    private  boolean isVaildate(){
+       String username=phone_number.getText().toString().trim();
+       if(username.equals("")){
+           Toast.makeText(this,"手机号码不能为空！",Toast.LENGTH_SHORT).show();
+           return false;
+       }
+
+       if(!StringUtils.isPhoneNumberValid(username)){
+           Toast.makeText(this,"手机号有误！",Toast.LENGTH_SHORT).show();
+           return false;
+       }
+       return true;
+   }
+
+
 
     private void register() {
         RequestParams params=new RequestParams("http://10.40.5.37:8080/Login/AddUser");
@@ -90,9 +117,5 @@ public class Register extends AppCompatActivity {
             }
         });
     }
-    public static boolean isMobileNum(String telNum){
-        Pattern p = Pattern.compile("^((13[0-9])|(15[^4,\\D])|(18[0,5-9]))\\d{8}$");
-        Matcher m = p.matcher(telNum);
-        return m.matches();
-    }
+
 }

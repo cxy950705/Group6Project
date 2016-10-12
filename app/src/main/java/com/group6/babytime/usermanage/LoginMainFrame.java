@@ -2,10 +2,12 @@ package com.group6.babytime.usermanage;
 
 import android.content.Intent;
 import android.os.Bundle;
+
 import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
-import android.view.Window;
+
 import android.widget.Button;
 import android.widget.Toast;
 
@@ -16,10 +18,20 @@ import com.sina.weibo.sdk.auth.Oauth2AccessToken;
 import com.sina.weibo.sdk.auth.WeiboAuthListener;
 import com.sina.weibo.sdk.auth.sso.SsoHandler;
 import com.sina.weibo.sdk.exception.WeiboException;
+import com.tencent.connect.UserInfo;
+import com.tencent.connect.auth.QQAuth;
+import com.tencent.tauth.IUiListener;
+import com.tencent.tauth.Tencent;
+import com.tencent.tauth.UiError;
+
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.text.SimpleDateFormat;
 
 public class LoginMainFrame extends AppCompatActivity {
+
+    public static String TAG="MainActivity";
 
     private Button login_btn;
     private Button register_btn;
@@ -27,11 +39,17 @@ public class LoginMainFrame extends AppCompatActivity {
     private Button weibo_btn;
     private Button weixin_btn;
 
-    APPConstants constants=new APPConstants();
-    //微博部分
+    //微博第三方登录
     private SsoHandler mSsoHandler;
     private AuthInfo mAuthInfo;
     private Oauth2AccessToken mAccessToken;
+
+    //QQ第三方登录
+    private UserInfo mInfo;
+    private Tencent mTencent;
+    private QQAuth mQQAuth;
+
+    public static String openidString;
 
 
     @Override
@@ -50,6 +68,8 @@ public class LoginMainFrame extends AppCompatActivity {
         mAuthInfo = new AuthInfo(this, APPConstants.WEIBO_APP_KEY, APPConstants.SINA_REDIRECT_URL, APPConstants.SINA_SCOPE);
         mSsoHandler = new SsoHandler(this, mAuthInfo);
 
+
+
         login_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -66,14 +86,19 @@ public class LoginMainFrame extends AppCompatActivity {
             }
         });
 
+
+        qq_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                LoginQQ();
+            }
+        });
         weibo_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 mSsoHandler.authorize(new AuthListener());
             }
         });
-
-
 
     }
     class AuthListener implements WeiboAuthListener {
@@ -92,6 +117,7 @@ public class LoginMainFrame extends AppCompatActivity {
                 AccessTokenKeeper.writeAccessToken(LoginMainFrame.this, mAccessToken);
                 Toast.makeText(LoginMainFrame.this,
                         R.string.weibosdk_demo_toast_auth_success, Toast.LENGTH_SHORT).show();
+
             } else {
                 // 以下几种情况，您会收到 Code：
                 // 1. 当您未在平台上注册的应用程序的包名与签名时；
@@ -146,4 +172,43 @@ public class LoginMainFrame extends AppCompatActivity {
         }
 
     }
+
+    //第三方登录QQ
+    public void LoginQQ(){
+        //QQ初始化
+        mQQAuth=QQAuth.createInstance(APPConstants.QQ_APP_ID,this.getApplicationContext());
+        mTencent=Tencent.createInstance(APPConstants.QQ_APP_ID,this);
+        mTencent.login(LoginMainFrame.this,"all",new BaseUIListener());
+
+    }
+
+    private class BaseUIListener implements IUiListener{
+
+        @Override
+        public void onComplete(Object response) {
+            Toast.makeText(getApplicationContext(), "登录成功", Toast.LENGTH_SHORT).show();
+            try {
+                //获得的数据是JSON格式的，获得你想获得的内容
+                //如果你不知道你能获得什么，看一下下面的LOG
+                Log.e(TAG, "-------------"+response.toString());
+                openidString = ((JSONObject) response).getString("openid");
+                Log.e(TAG, "-------------"+openidString);
+                //access_token= ((JSONObject) response).getString("access_token");              //expires_in = ((JSONObject) response).getString("expires_in");
+            } catch (JSONException e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+            }
+        }
+
+        @Override
+        public void onError(UiError uiError) {
+
+        }
+
+        @Override
+        public void onCancel() {
+
+        }
+    }
+
 }

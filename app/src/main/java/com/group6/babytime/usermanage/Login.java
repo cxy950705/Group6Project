@@ -1,6 +1,7 @@
 package com.group6.babytime.usermanage;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -27,6 +28,7 @@ public class Login extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+
         et_username = ((EditText) findViewById(R.id.et_username));
         et_password = ((EditText) findViewById(R.id.et_password));
 
@@ -92,7 +94,7 @@ public class Login extends AppCompatActivity {
 
             @Override
             public void onError(Throwable ex, boolean isOnCallback) {
-
+                Toast.makeText(x.app(), "登录超时，请检查你的网络设置", Toast.LENGTH_SHORT).show();
             }
 
             @Override

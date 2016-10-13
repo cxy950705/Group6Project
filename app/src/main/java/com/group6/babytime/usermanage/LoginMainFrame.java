@@ -91,8 +91,11 @@ public class LoginMainFrame extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 LoginQQ();
+
             }
+
         });
+
         weibo_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -118,6 +121,7 @@ public class LoginMainFrame extends AppCompatActivity {
                 Toast.makeText(LoginMainFrame.this,
                         "验证成功", Toast.LENGTH_SHORT).show();
 
+
             } else {
                 // 以下几种情况，您会收到 Code：
                 // 1. 当您未在平台上注册的应用程序的包名与签名时；
@@ -126,7 +130,7 @@ public class LoginMainFrame extends AppCompatActivity {
                 String code = values.getString("code");
                 String message = getString(R.string.weibosdk_demo_toast_auth_failed);
                 if (!TextUtils.isEmpty(code)) {
-                    message = message + "\nObtained the code: " + code;
+                    message = message + "错误代码" + code;
                 }
                 Toast.makeText(LoginMainFrame.this, message, Toast.LENGTH_LONG).show();
             }
@@ -141,7 +145,7 @@ public class LoginMainFrame extends AppCompatActivity {
         @Override
         public void onWeiboException(WeiboException e) {
             Toast.makeText(LoginMainFrame.this,
-                    "Auth exception : " + e.getMessage(), Toast.LENGTH_LONG).show();
+                    "验证异常: " + e.getMessage(), Toast.LENGTH_LONG).show();
         }
     }
 

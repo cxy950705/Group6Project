@@ -14,7 +14,7 @@
              android:layout_width="wrap_content"
              android:layout_height="wrap_content"
              android:layout_centerInParent="true"
-             android:textColor="#666666"
+             android:textColor="@drawable/text_changed_selector"
              android:layout_below="@+id/image"
              />
 </RelativeLayout>

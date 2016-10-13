@@ -1,35 +1,55 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingBottom="16dp"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.group6.babytime.MainActivity">
+    android:orientation="vertical">
 
     <FrameLayout
-           android:id="@+id/maincontent"
-             android:layout_width="fill_parent"
-             android:layout_height="0dp"
-            android:layout_weight="1" >
-    </FrameLayout>
+        android:id="@+id/frameLayout"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"></FrameLayout>
 
-         <!-- 底层菜单 -->
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#b5b5b5" />
 
-         <android.support.v4.app.FragmentTabHost
-            android:id="@android:id/tabhost"
-            android:layout_width="fill_parent"
-             android:layout_height="wrap_content"
-             android:layout_alignParentBottom="true"
-            >
+    <RadioGroup
+        android:id="@+id/radioGroup"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:layout_gravity="bottom"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:padding="1dp">
 
-             <FrameLayout
-                 android:id="@android:id/tabcontent"
-                 android:layout_width="0dp"
-                 android:layout_height="0dp"
-                 android:layout_weight="0" >
-             </FrameLayout>
-         </android.support.v4.app.FragmentTabHost>
-</RelativeLayout>
+        <RadioButton
+            android:id="@+id/btn_growth"
+            style="@style/style_RadioButton"
+            android:drawableTop="@drawable/bt_home_selector"
+            android:text="@string/main_growth" />
+
+        <RadioButton
+            android:id="@+id/btn_album"
+            style="@style/style_RadioButton"
+            android:drawableTop="@drawable/bt_album_selector"
+            android:text="@string/main_album"
+            />
+
+        <RadioButton
+            android:id="@+id/btn_babyevent"
+            style="@style/style_RadioButton"
+            android:drawableTop="@drawable/bt_babyevent_selector"
+            android:text="@string/main_babyevent"
+         />
+
+        <RadioButton
+            android:id="@+id/btn_me"
+            style="@style/style_RadioButton"
+            android:drawableTop="@drawable/bt_more_selector"
+            android:text="@string/main_me"
+         />
+
+    </RadioGroup>
+</LinearLayout>

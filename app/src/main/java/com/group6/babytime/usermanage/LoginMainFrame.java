@@ -116,7 +116,7 @@ public class LoginMainFrame extends AppCompatActivity {
                 // 保存 Token 到 SharedPreferences
                 AccessTokenKeeper.writeAccessToken(LoginMainFrame.this, mAccessToken);
                 Toast.makeText(LoginMainFrame.this,
-                        R.string.weibosdk_demo_toast_auth_success, Toast.LENGTH_SHORT).show();
+                        "验证成功", Toast.LENGTH_SHORT).show();
 
             } else {
                 // 以下几种情况，您会收到 Code：

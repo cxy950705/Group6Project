@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="买买"
+        android:id="@+id/buy_title_bar"
+        android:background="#f8ca00"
+        android:textSize="18sp"
+        android:drawableLeft="@drawable/back"
+        android:padding="10dp"
+        android:textColor="#ffffff"
+        android:gravity="center"
+        />
+    <WebView
+        android:id="@+id/wv_shopping"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
+
+    </WebView>
+</RelativeLayout>

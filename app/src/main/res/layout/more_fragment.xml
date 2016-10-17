@@ -1,13 +1,86 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
-    
-    <Button
+    android:layout_height="match_parent"
+    android:background="#ffffff"
+    >
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:text="更多"
+        android:id="@+id/title_bar"
+        android:background="#f8ca00"
+        android:textSize="18sp"
+        android:textColor="#ffffff"
+        android:gravity="center"
+        />
+
+
+    <ListView
+        android:id="@+id/lv_userinfo"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/btn_user_info"
+        android:layout_below="@+id/title_bar"
+        android:layout_marginTop="20dp"
+        >
+
+    </ListView>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/lv_userinfo"
+        >
+        <Button
+            style="@style/style_more_button"
+            android:id="@+id/btn_feedback"
+            android:drawableLeft="@drawable/feedback"
+            android:text="@string/feedback"
+            android:layout_marginTop="30dp"
+
+            />
+        <Button
+            style="@style/style_more_button"
+            android:id="@+id/btn_settings"
+            android:drawableLeft="@drawable/setting"
+            android:text="@string/settings"
+            android:layout_below="@+id/btn_feedback"
+            />
+
+
+        <Button
+            style="@style/style_more_button"
+            android:id="@+id/btn_buy"
+            android:drawableLeft="@drawable/shopping"
+            android:text="@string/buy"
+            android:layout_below="@id/btn_settings"
+            />
+        <Button
+            style="@style/style_more_button"
+            android:id="@+id/btn_favorites"
+            android:drawableLeft="@drawable/favorite"
+            android:text="@string/favorites"
+            android:layout_below="@+id/btn_buy"
+            >
+
+        </Button>
+
+    <Button
+        style="@style/style_more_button"
+        android:id="@+id/btn_recommend"
+        android:text="@string/recommend"
+        android:layout_below="@+id/btn_favorites"
+        android:layout_marginTop="30dp"
         />
-    
+
+    <Button
+        style="@style/style_more_button"
+        android:id="@+id/btn_about"
+        android:text="@string/about"
+        android:background="#ffffff"
+        android:layout_below="@+id/btn_recommend"
+        />
+    </RelativeLayout>
 
 </RelativeLayout>

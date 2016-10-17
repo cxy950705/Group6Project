@@ -17,4 +17,7 @@ public class APPConstants {
     public static final String MOB_APP_KEY="17d2bb80cc740";
     public static final String MOB_APP_SECRET="51db85c8d8dfad3e7ed6ffddd2a46535";
 
+    //宝宝购买网站
+    public static final String TAOBAO_WEBSITE="https://h5.m.taobao.com/s-nx-catmap/index/index.html?locate=icon-10&spm=a215s.7406091.icons.10&scm=2027.1.2.1005&_s_nx_orange_key=catmap";
+
 }

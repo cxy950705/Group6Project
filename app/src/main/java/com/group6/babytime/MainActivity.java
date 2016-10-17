@@ -1,7 +1,11 @@
 package com.group6.babytime;
 
+import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -19,6 +23,7 @@ public class MainActivity extends BaseActivity {
     private RadioGroup mRadioGroup;
 
     public boolean isFirstRun;
+    private long exitTime = 0;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,9 +37,15 @@ public class MainActivity extends BaseActivity {
             Intent intent=new Intent(MainActivity.this,LoginMainFrame.class);
             startActivity(intent);
             editor.putBoolean("isFirstRun", false);
-            editor.commit();
+            editor.apply();
         }
         setContentView(R.layout.activity_main);
+
+        //检查网络是否连通
+        if (!isNetWorkAvailable(MainActivity.this))
+        {
+            Toast.makeText(getApplicationContext(), "当前没有可用网络！", Toast.LENGTH_LONG).show();
+        }
 
         fragmentManager = getSupportFragmentManager();
         mRadioGroup = (RadioGroup) findViewById(R.id.radioGroup);
@@ -49,7 +60,7 @@ public class MainActivity extends BaseActivity {
         });
     }
 
-    private long exitTime = 0;
+
 
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
@@ -65,4 +76,29 @@ public class MainActivity extends BaseActivity {
         }
         return super.onKeyDown(keyCode, event);
     }
+
+
+    public boolean isNetWorkAvailable(Activity activity){
+        Context context=activity.getApplicationContext();
+        ConnectivityManager connectivityManager=(ConnectivityManager)context.getSystemService(Context.CONNECTIVITY_SERVICE);
+        if(connectivityManager==null){
+            return false;
+        }
+
+        else{
+            NetworkInfo networkInfo[]=connectivityManager.getAllNetworkInfo();
+            if (networkInfo != null && networkInfo.length > 0)
+            {
+                for (NetworkInfo aNetworkInfo : networkInfo) {
+                    // 判断当前网络状态是否为连接状态
+                    if (aNetworkInfo.getState() == NetworkInfo.State.CONNECTED) {
+                        return true;
+                    }
+                }
+            }
+        }
+        return false;
+    }
+
+
 }

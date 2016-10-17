@@ -42,4 +42,6 @@ dependencies {
     compile name: 'SMSSDKGUI-2.1.2', ext: 'aar'
     compile files('lib/MobCommons-2016.0921.1136.jar')
     compile files('lib/MobTools-2016.0921.1136.jar')
+
+
 }

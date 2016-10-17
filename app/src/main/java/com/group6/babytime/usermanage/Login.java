@@ -3,6 +3,7 @@ package com.group6.babytime.usermanage;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
@@ -13,6 +14,7 @@ import android.widget.Toast;
 
 import com.group6.babytime.MainActivity;
 import com.group6.babytime.R;
+import com.group6.babytime.fragment.MoreFragment;
 
 import org.xutils.common.Callback;
 import org.xutils.http.RequestParams;
@@ -23,6 +25,9 @@ public class Login extends AppCompatActivity {
     private Button login_btn;
     private EditText et_username;
     private EditText et_password;
+
+    private FragmentTransaction ft;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,6 +56,8 @@ public class Login extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+
     }
 
 
@@ -83,18 +90,29 @@ public class Login extends AppCompatActivity {
             @Override
             public void onSuccess(String result) {
                 if(result.equals("登录成功")){
+                    Intent login_intent=new Intent(Login.this, MainActivity.class);
+
+
+                    startActivity(login_intent);
                     Toast.makeText(x.app(), "登录成功", Toast.LENGTH_SHORT).show();
-                    Intent intent=new Intent(Login.this, MainActivity.class);
-                    startActivity(intent);
+
+                    MoreFragment moreFragment=new MoreFragment();
+                    Bundle bundle=new Bundle();
+                    String user_value=et_username.getText().toString().trim();
+                    bundle.putString("user_value",user_value);
+                    moreFragment.setArguments(bundle);
+
                 }
 
-                else
+                if(result.equals("登录失败")){
                     Toast.makeText(x.app(), "登录失败", Toast.LENGTH_SHORT).show();
+                }
+
             }
 
             @Override
             public void onError(Throwable ex, boolean isOnCallback) {
-                Toast.makeText(x.app(), "登录超时，请检查你的网络设置", Toast.LENGTH_SHORT).show();
+
             }
 
             @Override

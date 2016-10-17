@@ -12,4 +12,12 @@
     <string name="weibosdk_demo_toast_auth_failed">授权失败</string>
     <string name="weibosdk_demo_toast_auth_canceled">取消授权</string>
 
+
+    <!-- 更多 -->
+    <string name="feedback">意见反馈</string>
+    <string name="settings">通用设置</string>
+    <string name="buy">买买</string>
+    <string name="favorites">收藏</string>
+    <string name="recommend">推荐给好友</string>
+    <string name="about">关于本产品</string>
 </resources>

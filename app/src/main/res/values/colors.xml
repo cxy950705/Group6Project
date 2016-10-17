@@ -6,4 +6,6 @@
 
     <color name="tab_textcolor1">#F5D336</color>
     <color name="tab_textcolor2">#666666</color>
+
+    <color name="font_color_more">#686868</color>
 </resources>

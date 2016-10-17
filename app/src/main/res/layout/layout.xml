@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="#ffefef"
+    android:padding="14dp">
+
+
+    <TextView
+        android:id="@+id/tv_date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="18sp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="5dp"
+        android:textColor="#000000"
+        android:text="9月3日  "/>
+
+    <TextView
+        android:id="@+id/tv_babydate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/tv_date"
+        android:layout_alignTop="@id/tv_date"
+        android:textSize="16sp"
+        android:textColor="#000000"
+        android:text="10个月19天"
+        />
+    <ImageView
+        android:id="@+id/iv_edit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="50dp"
+
+        android:layout_alignBottom="@id/tv_date"
+        android:src="@drawable/edit"/>
+    <ImageView
+        android:id="@+id/iv_share"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@id/iv_edit"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="10dp"
+
+
+        android:src="@drawable/share"/>
+    <TextView
+        android:id="@+id/tv_zhengwen"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_marginLeft="30dp"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="10dp"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/tv_date"
+        android:gravity="center"
+        android:background="#efefef"
+        android:textColor="#000000"
+        android:text="正文"/>
+    <ImageView
+        android:id="@+id/iv_collect"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@id/iv_edit"
+        android:layout_below="@id/tv_zhengwen"
+        android:src="@drawable/collect"/>
+    <TextView
+        android:id="@+id/tv_collect"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/iv_collect"
+        android:layout_alignTop="@id/iv_collect"
+        android:textColor="#000000"
+        android:text="1"/>
+    <ImageView
+        android:id="@+id/iv_new"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@id/iv_share"
+        android:layout_alignTop="@id/iv_collect"
+        android:src="@drawable/news"/>
+    <TextView
+        android:id="@+id/tv_new"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/iv_new"
+        android:layout_alignTop="@id/iv_collect"
+        android:textColor="#000000"
+        android:text="0"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="30dp"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="10dp"
+        android:layout_below="@id/iv_collect"
+        android:background="#808080"
+        android:text="点击这里进行评论"/>
+    <ImageView
+        android:id="@+id/iv_photo"
+        android:layout_width="1dp"
+        android:layout_height="1dp"
+        android:src="@drawable/fm_run_pic_default"
+        android:layout_marginLeft="20dp"
+        />
+</RelativeLayout>

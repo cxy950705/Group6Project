@@ -1,15 +1,96 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
-    
-    <TextView
-        android:id="@+id/text1"
+    android:layout_height="match_parent"
+    android:background="#fff"
+    >
+    <include
+        android:id="@+id/homepage_top"
+        layout="@layout/top_xml"/>
+    <RelativeLayout
+        android:id="@+id/homepage_second"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/homepage_top">
+        <ListView
+            android:id="@+id/lv_head"
+            android:background="@drawable/beijin"
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            />
+
+        <ImageView
+            android:id="@+id/iv_babyhead"
+            android:src="@drawable/baby"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="30dp"
+            />
+        <TextView
+            android:id="@+id/tv_babyname"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_below="@id/iv_babyhead"
+            android:layout_alignLeft="@id/iv_babyhead"
+            android:textColor="#000000"
+            android:text="小朱10个月9天"
+            />
+        <TextView
+            android:id="@+id/tv_famliy"
+            android:background="#ff4500"
+            android:layout_width="100dp"
+            android:layout_height="50dp"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="50dp"
+            android:layout_below="@id/iv_babyhead"
+            android:textColor="#ffffff"
+            android:gravity="center"
+            android:text="邀请亲友"/>
+
+        <RelativeLayout
+            android:id="@+id/ll_gongju"
+
+            android:layout_width="match_parent"
+            android:background="#ffffff"
+            android:gravity="center"
+            android:layout_gravity="top"
+            android:layout_marginTop="150dp"
+            android:layout_height="wrap_content">
+            <Button
+                android:id="@+id/tv_xieriji"
+                android:layout_width="120dp"
+                android:layout_height="50dp"
+                android:layout_alignParentLeft="true"
+                android:gravity="center"
+                android:textColor="#000000"
+                android:text="日记"
+                />
+            <Button
+                android:id="@+id/tv_qupai"
+                android:layout_width="120dp"
+                android:layout_height="50dp"
+                android:layout_toRightOf="@id/tv_xieriji"
+                android:gravity="center"
+                android:textColor="#000000"
+                android:text="趣拍"
+                />
+            <Button
+                android:id="@+id/tv_shipin"
+                android:layout_width="120dp"
+                android:layout_height="50dp"
+                android:layout_toRightOf="@id/tv_qupai"
+                android:gravity="center"
+                android:textColor="#000000"
+                android:text="视频"
+                />
+        </RelativeLayout>
+    </RelativeLayout>
+    <ListView
+        android:id="@+id/lv_test"
+        android:layout_below="@id/homepage_second"
+        android:background="#ffffff"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="我是小家Fragment"
-        android:layout_centerInParent="true"
-        android:textSize="20sp"
         />
-
 </RelativeLayout>

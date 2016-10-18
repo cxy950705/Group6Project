@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#fff"
+    android:orientation="vertical" >
+
+    <LinearLayout android:layout_width="match_parent"
+        android:layout_marginLeft="8dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:orientation="horizontal"
+        android:background="@color/mistyrose">
+        <ImageView
+            android:id="@+id/iv_touxiang"
+            android:src="@drawable/daren_tang_huizhang_4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+        <TextView
+            android:id="@+id/title"
+            android:text="疫苗名字"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#666872"/>
+        <TextView
+            android:id="@+id/tv_quanzhong"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />
+        <Button
+            android:id="@+id/bu_status"
+            android:layout_marginRight="9dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="未接种"/>
+    </LinearLayout>
+    <TextView
+        android:id="@+id/info"
+        android:text="宝宝月龄"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:textColor="#000"/>
+</LinearLayout>

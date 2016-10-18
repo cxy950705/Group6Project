@@ -24,8 +24,7 @@
         <activity android:name=".usermanage.Register" />
         <activity android:name=".usermanage.Nickname" />
         >
-        <activity android:name=".MainActivity"
-            android:theme="@style/Theme.AppCompat.NoActionBar">
+        <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -61,6 +60,7 @@
             android:theme="@android:style/Theme.Translucent.NoTitleBar"
             android:windowSoftInputMode="stateHidden|adjustResize" />
         <activity android:name=".more.BuyActivity"></activity>
+        <activity android:name=".YimiaoActivity"></activity>
     </application>
 
 </manifest>

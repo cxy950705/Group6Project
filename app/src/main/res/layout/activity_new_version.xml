@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.group6.babytime.more.AboutProductActivity">
+
+
+    <ImageView
+        android:id="@+id/icon_launcher"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:background="@mipmap/ic_launcher"
+        android:layout_centerHorizontal="true"
+        />
+
+    <TextView
+        android:id="@+id/tv_versioncode"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/icon_launcher"
+        android:text="@string/version_code"
+        android:layout_marginTop="10dp"
+        />
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/update_version"
+        android:text="@string/new_version"
+        android:layout_below="@+id/tv_versioncode"
+        android:layout_marginTop="30dp"
+        />
+
+    <TextView
+        android:id="@+id/copyright_info1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:text="@string/copyright_info1"
+
+        />
+
+    <TextView
+        android:id="@+id/copyright_info2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:text="@string/copyright_info2"
+        android:layout_below="@id/copyright_info1"
+        android:layout_centerHorizontal="true"
+        />
+</RelativeLayout>

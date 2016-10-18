@@ -5,6 +5,8 @@
     <string name="main_babyevent">宝宝事件</string>
     <string name="main_me">更多</string>
 
+    <string name="backtomenu">返回</string>
+
     <!-- 获取 Token -->
     <string name="weibosdk_demo_token_has_existed">Token 仍在有效期内，无需再次登录。</string>
     <string name="weibosdk_demo_token_to_string_format_1">Token：%1$s \n有效期：%2$s</string>
@@ -20,4 +22,31 @@
     <string name="favorites">收藏</string>
     <string name="recommend">推荐给好友</string>
     <string name="about">关于本产品</string>
+
+    <!-- 意见反馈 -->
+    <string name="suggestion">您遇到的问题或改进建议</string>
+    <string name="contact">您的联系方式（手机或者QQ）</string>
+    <string name="feedback_info">我们会仔细阅读您的反馈，并尽早给你回复，感谢您对我们本产品的支持与喜爱！</string>
+    <string name="suggestion_hint">请输入你想提出的建议，不超过200字</string>
+    <string name="contact_hint">方便我们给您答复</string>
+    <string name="send">发送</string>
+
+    <!-- 关于本产品 -->
+    <string name="new_version">新版本提醒</string>
+    <string name="version_code">Baby时光 V1.0</string>
+    <string name="copyright_info1">免责信息和版本声明</string>
+    <string name="copyright_info2">Copyright ©2016 Baby时光 All rights reserved</string>
+
+    <!-- 通用设置 -->
+    <string name="change_phone">更改绑定手机</string>
+    <string name="change_password">更改账号密码</string>
+    <string name="enable_cellular_data">非WIFI网络导入照片</string>
+    <string name="clear_cache">清除缓存</string>
+    <string name="logout">退出登录</string>
+
+    <!-- 蜂窝数据启用 -->
+    <string name="close_cellular">关闭</string>
+    <string name="open_cellular">打开</string>
+
+
 </resources>

@@ -19,13 +19,12 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".usermanage.LoginMainFrame"></activity>
+        <activity android:name=".usermanage.LoginMainFrame" />
         <activity android:name=".usermanage.Login" />
         <activity android:name=".usermanage.Register" />
         <activity android:name=".usermanage.Nickname" />
         >
-        <activity android:name=".MainActivity"
-            android:theme="@style/Theme.AppCompat.NoActionBar">
+        <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -36,7 +35,7 @@
             android:name="com.sina.weibo.sdk.component.WeiboSdkBrowser"
             android:configChanges="keyboardHidden|orientation"
             android:exported="false"
-            android:windowSoftInputMode="adjustResize"></activity>
+            android:windowSoftInputMode="adjustResize" />
         <activity
             android:name="com.tencent.tauth.AuthActivity"
             android:launchMode="singleTask"
@@ -60,7 +59,11 @@
             android:configChanges="keyboardHidden|orientation|screenSize"
             android:theme="@android:style/Theme.Translucent.NoTitleBar"
             android:windowSoftInputMode="stateHidden|adjustResize" />
-        <activity android:name=".more.BuyActivity"></activity>
+        <activity android:name=".more.BuyActivity" />
+        <activity android:name=".more.FeedBackActivity" />
+        <activity android:name=".more.AboutProductActivity" />
+        <activity android:name=".more.SettingActivity" />
+        <activity android:name=".more.ConsumateUserInfoActivity"></activity>
     </application>
 
 </manifest>

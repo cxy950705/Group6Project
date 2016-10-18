@@ -17,7 +17,10 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import com.group6.babytime.R;
+import com.group6.babytime.more.AboutProductActivity;
 import com.group6.babytime.more.BuyActivity;
+import com.group6.babytime.more.FeedBackActivity;
+import com.group6.babytime.more.SettingActivity;
 import com.group6.babytime.usermanage.LoginMainFrame;
 
 import java.util.ArrayList;
@@ -44,11 +47,6 @@ public class MoreFragment extends Fragment implements View.OnClickListener{
     private String infoIsComplete="abc";//判断用户信息是否完善
 
 
-    @Override
-    public void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-
-    }
 
     @Nullable
     @Override
@@ -65,6 +63,9 @@ public class MoreFragment extends Fragment implements View.OnClickListener{
         btn_about=(Button)view.findViewById(R.id.btn_about);
 
         btn_buy.setOnClickListener(this);
+        btn_feedback.setOnClickListener(this);
+        btn_about.setOnClickListener(this);
+        btn_settings.setOnClickListener(this);
 
         ListViewAdapter mAdapter=new ListViewAdapter(getContext());
         lv_userinfo.setAdapter(mAdapter);
@@ -91,6 +92,20 @@ public class MoreFragment extends Fragment implements View.OnClickListener{
             case R.id.btn_buy:
                 Intent buy_intent=new Intent(this.getContext(), BuyActivity.class);
                 startActivity(buy_intent);
+                break;
+            case R.id.btn_feedback:
+                Intent feedback_intent=new Intent(this.getContext(), FeedBackActivity.class);
+                startActivity(feedback_intent);
+                break;
+            case R.id.btn_about:
+                Intent about_intent=new Intent(this.getContext(), AboutProductActivity.class);
+                startActivity(about_intent);
+                break;
+
+            case R.id.btn_settings:
+                Intent setting_intent=new Intent(this.getContext(), SettingActivity.class);
+                startActivity(setting_intent);
+                break;
         }
     }
 

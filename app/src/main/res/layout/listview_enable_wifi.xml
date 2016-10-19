@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/tv_cellular_data"
+        android:text="@string/enable_cellular_data"
+        android:layout_alignParentLeft="true"
+        android:paddingLeft="12dp"
+        android:textColor="#000000"
+        android:textSize="14sp"
+        />
+
+
+    <Switch
+        android:id="@+id/switch_cellular"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:paddingRight="16dp"
+        android:textOff="@string/close_cellular"
+        android:textOn="@string/open_cellular"
+        />
+
+</RelativeLayout>

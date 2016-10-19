@@ -7,49 +7,40 @@
 
     <Button
         android:id="@+id/btn_changephone"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        style="@style/style_button_settings"
         android:text="@string/change_phone"
         android:layout_marginTop="50dp"
         />
 
     <Button
         android:id="@+id/btn_changepassword"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        style="@style/style_button_settings"
         android:text="@string/change_password"
-        android:layout_below="@id/btn_changephone"
+        android:layout_below="@+id/btn_changephone"
         />
 
-    <Button
+    <ListView
+        android:id="@+id/lv_enableWIFI"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/enable_cellular_data"
-        android:text="@string/enable_cellular_data"
-        android:layout_below="@id/btn_changepassword"
-        />
-    <Switch
-        android:id="@+id/switch_cellular"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
-        android:textOff="@string/close_cellular"
-        android:textOn="@string/open_cellular"
-        />
+        android:layout_below="@+id/btn_changepassword"
+        android:background="#ffffff"
+        >
+    </ListView>
+
+
     <Button
         android:id="@+id/clear_cache"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        style="@style/style_button_settings"
         android:text="@string/clear_cache"
-        android:layout_below="@id/enable_cellular_data"
+        android:layout_below="@+id/lv_enableWIFI"
         />
 
     <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        style="@style/style_button_settings"
         android:id="@+id/btn_logout"
         android:text="@string/logout"
-        android:layout_below="@id/clear_cache"
+        android:layout_below="@+id/clear_cache"
         />
 
 

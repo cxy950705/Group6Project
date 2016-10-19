@@ -1,7 +1,7 @@
 <resources>
 
     <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+    <style name="AppTheme" parent="Base.Theme.AppCompat.Light.DarkActionBar">
         <!-- Customize your theme here. -->
         <item name="colorPrimary">#F8CA00</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
@@ -26,6 +26,7 @@
         <item name="android:textColor">@color/font_color_more</item>
         <item name="android:background">#ffffff</item>
         <item name="android:paddingLeft">20dp</item>
+        <item name="android:gravity">start</item>
         <item name="android:button">?android:attr/borderlessButtonStyle</item>
     </style>
 
@@ -45,5 +46,32 @@
         <item name="android:background">@android:drawable/edit_text</item>
         <item name="android:paddingLeft">16dp</item>
         <item name="android:paddingRight">16dp</item>
+    </style>
+
+    <style name="style_textview_password">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:layout_alignParentLeft">true</item>
+        <item name="android:layout_marginTop">50dp</item>
+        <item name="android:textAppearance">?android:attr/textAppearanceMedium</item>
+    </style>
+    <style name="style_edittext_password">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+       <item name="android:background">@android:drawable/edit_text</item>
+        <item name="android:layout_marginTop">50dp</item>
+        <item name="android:inputType">textPassword</item>
+        <item name="android:ems">15</item>
+    </style>
+
+    <style name="style_button_settings">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:gravity">center_vertical|start</item>
+        <item name="android:paddingLeft">12dp</item>
+        <item name="android:background">#ffffff</item>
+        <item name="android:textSize">14sp</item>
+
     </style>
 </resources>

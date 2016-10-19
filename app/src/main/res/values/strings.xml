@@ -16,6 +16,7 @@
 
 
     <!-- 更多 -->
+    <string name="changeUserInfo">更改个人信息</string>
     <string name="feedback">意见反馈</string>
     <string name="settings">通用设置</string>
     <string name="buy">买买</string>
@@ -48,5 +49,16 @@
     <string name="close_cellular">关闭</string>
     <string name="open_cellular">打开</string>
 
+    <!-- 修改个人信息 -->
+    <string name="user_icon">头像</string>
+    <string name="nickname">修改昵称</string>
 
+    <!-- 修改昵称 -->
+    <string name="tv_nickname_info">请不要超过20个字符，支持中文，英文，数字</string>
+    <string name="save">保存</string>
+
+    <!-- 修改密码 -->
+    <string name="old_password">旧密码\n</string>
+    <string name="new_password">新密码\n</string>
+    <string name="confirm_password">确认新\n密码</string>
 </resources>

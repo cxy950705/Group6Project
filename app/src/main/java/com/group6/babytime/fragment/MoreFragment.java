@@ -9,6 +9,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -19,6 +20,7 @@ import android.widget.TextView;
 import com.group6.babytime.R;
 import com.group6.babytime.more.AboutProductActivity;
 import com.group6.babytime.more.BuyActivity;
+import com.group6.babytime.more.ConsumateUserInfoActivity;
 import com.group6.babytime.more.FeedBackActivity;
 import com.group6.babytime.more.SettingActivity;
 import com.group6.babytime.usermanage.LoginMainFrame;
@@ -46,7 +48,10 @@ public class MoreFragment extends Fragment implements View.OnClickListener{
     private int user_icon=R.id.user_icon;//用户头像
     private String infoIsComplete="abc";//判断用户信息是否完善
 
-
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+    }
 
     @Nullable
     @Override
@@ -69,6 +74,7 @@ public class MoreFragment extends Fragment implements View.OnClickListener{
 
         ListViewAdapter mAdapter=new ListViewAdapter(getContext());
         lv_userinfo.setAdapter(mAdapter);
+
         return view;
     }
 
@@ -106,8 +112,12 @@ public class MoreFragment extends Fragment implements View.OnClickListener{
                 Intent setting_intent=new Intent(this.getContext(), SettingActivity.class);
                 startActivity(setting_intent);
                 break;
+
+
         }
     }
+
+
 
     private class ListViewAdapter extends BaseAdapter {
         private LayoutInflater mLayoutInflater;
@@ -145,6 +155,17 @@ public class MoreFragment extends Fragment implements View.OnClickListener{
             }else {
                 holder=(ViewHolder)convertView.getTag();
             }
+//            Bundle bundle=getArguments();
+//            holder.Username.setText(bundle.getString("user_value"));
+
+            convertView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent=new Intent(getContext(),ConsumateUserInfoActivity.class);
+                    startActivity(intent);
+
+                }
+            });
             holder.Username.setText(username);
             holder.tv_info.setText(infoIsComplete);
             return convertView;

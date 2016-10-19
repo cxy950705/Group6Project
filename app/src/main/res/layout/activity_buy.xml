@@ -5,18 +5,6 @@
     android:layout_height="match_parent"
     >
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/buy"
-        android:id="@+id/buy_title_bar"
-        android:background="#f8ca00"
-        android:textSize="18sp"
-        android:drawableLeft="@drawable/back"
-        android:padding="10dp"
-        android:textColor="#ffffff"
-        android:gravity="center"
-        />
     <WebView
         android:id="@+id/wv_shopping"
         android:layout_width="match_parent"

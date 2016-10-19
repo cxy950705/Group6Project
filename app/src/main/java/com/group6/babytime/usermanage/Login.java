@@ -3,6 +3,7 @@ package com.group6.babytime.usermanage;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -26,7 +27,8 @@ public class Login extends AppCompatActivity {
     private EditText et_username;
     private EditText et_password;
 
-    private FragmentTransaction ft;
+    private FragmentManager manager;
+    private FragmentTransaction transaction;
 
 
     @Override
@@ -37,9 +39,13 @@ public class Login extends AppCompatActivity {
         et_username = ((EditText) findViewById(R.id.et_username));
         et_password = ((EditText) findViewById(R.id.et_password));
 
+
         create_user = (TextView) findViewById(R.id.new_user);
 
         login_btn = ((Button) findViewById(R.id.login_btn));
+
+
+
         login_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -91,16 +97,19 @@ public class Login extends AppCompatActivity {
             public void onSuccess(String result) {
                 if(result.equals("登录成功")){
                     Intent login_intent=new Intent(Login.this, MainActivity.class);
-
-
                     startActivity(login_intent);
                     Toast.makeText(x.app(), "登录成功", Toast.LENGTH_SHORT).show();
 
-                    MoreFragment moreFragment=new MoreFragment();
-                    Bundle bundle=new Bundle();
-                    String user_value=et_username.getText().toString().trim();
-                    bundle.putString("user_value",user_value);
-                    moreFragment.setArguments(bundle);
+//                    manager=getSupportFragmentManager();
+//                    transaction=manager.beginTransaction();
+//
+//                    MoreFragment moreFragment=new MoreFragment();
+//                    Bundle bundle=new Bundle();
+//                    String user_value=et_username.getText().toString().trim();
+//                    bundle.putString("user_value",user_value);
+//                    moreFragment.setArguments(bundle);
+//                    transaction.replace(R.id.rl_userinfo,moreFragment);
+//                    transaction.commit();
 
                 }
 

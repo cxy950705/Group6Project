@@ -22,7 +22,6 @@
         <activity android:name=".usermanage.LoginMainFrame" />
         <activity android:name=".usermanage.Login" />
         <activity android:name=".usermanage.Register" />
-        <activity android:name=".usermanage.Nickname" />
         >
         <activity android:name=".MainActivity">
             <intent-filter>
@@ -63,7 +62,10 @@
         <activity android:name=".more.FeedBackActivity" />
         <activity android:name=".more.AboutProductActivity" />
         <activity android:name=".more.SettingActivity" />
-        <activity android:name=".more.ConsumateUserInfoActivity"></activity>
+        <activity android:name=".more.ConsumateUserInfoActivity" />
+        <activity android:name=".more.ChangeUsernameActivity" />
+        <activity android:name=".more.ChangePasswordActivity" />
+        <activity android:name=".TestActivity"></activity>
     </application>
 
 </manifest>

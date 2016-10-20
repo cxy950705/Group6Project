@@ -70,6 +70,7 @@ public class YimiaoInfoActivity extends AppCompatActivity {
             }
         });
 
+
         //第一步：添加一个下拉列表项的list，这里添加的项就是下拉列表的菜单项
         list.add("未接种");
         list.add("已接种");

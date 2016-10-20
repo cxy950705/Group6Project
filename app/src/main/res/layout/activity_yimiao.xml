@@ -27,11 +27,13 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1" />
-        <Button
+        <TextView
             android:id="@+id/bu_status"
+            android:textSize="20sp"
             android:layout_marginRight="9dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:descendantFocusability="blocksDescendants"
             android:text="未接种"/>
     </LinearLayout>
     <TextView

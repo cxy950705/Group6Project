@@ -1,10 +1,12 @@
 package com.group6.babytime.babyevent;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -27,11 +29,12 @@ import java.util.List;
 
 public class YimiaoActivity extends AppCompatActivity {
     private static final String TAG = "YimiaoActivity";
-    private ListView list;
+    private ListView lv_list;
     private BaseAdapter adapter;
 
     final List<ListActivityBean.YimiaoInfo> dongtaiList = new ArrayList<ListActivityBean.YimiaoInfo>();
     private TitleBar titlebar;
+//    private ListView list_ym;
 
 
     @Override
@@ -39,6 +42,9 @@ public class YimiaoActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.layout_list_yimiao);
         titlebar = ((TitleBar) findViewById(R.id.titlebar));
+//        list_ym = ((ListView) findViewById(R.id.list));
+
+
 
         titlebar.setTitle("疫苗接种");
         titlebar.setImgLeftRes(R.drawable.arro_left);
@@ -49,7 +55,17 @@ public class YimiaoActivity extends AppCompatActivity {
             }
         });
 
-        list = ((ListView) findViewById(R.id.list));
+        lv_list = ((ListView) findViewById(R.id.lv_list));
+        lv_list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                System.out.println(position);
+                Intent intent=new Intent(getApplicationContext(),YimiaoInfoActivity.class);
+                startActivity(intent);
+            }
+        });
+
+
         adapter = new BaseAdapter() {
             private ImageView iv_touxiang;
             //private Button bt_status;
@@ -80,7 +96,7 @@ public class YimiaoActivity extends AppCompatActivity {
                 View view = View.inflate(YimiaoActivity.this, R.layout.activity_yimiao, null);
                 //iv_touxiang = ((ImageView) view.findViewById(R.id.iv_touxiang));
                 TextView title = ((TextView) view.findViewById(R.id.title));
-                Button bt_status = ((Button) view.findViewById(R.id.bu_status));
+                TextView bt_status = ((TextView) view.findViewById(R.id.bu_status));
                 TextView info = ((TextView) view.findViewById(R.id.info));
 
 
@@ -94,7 +110,7 @@ public class YimiaoActivity extends AppCompatActivity {
                 return view;
             }
         };
-        list.setAdapter(adapter);
+        lv_list.setAdapter(adapter);
 
         getDongtaiList();
 

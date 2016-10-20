@@ -1,4 +1,4 @@
-package com.group6.babytime;
+package com.group6.babytime.babyevent;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -13,6 +13,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.gson.Gson;
+import com.group6.babytime.R;
 import com.group6.babytime.pojo.ListActivityBean;
 import com.group6.babytime.titlebar.TitleBar;
 

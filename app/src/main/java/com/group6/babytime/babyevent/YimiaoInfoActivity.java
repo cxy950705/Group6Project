@@ -4,20 +4,30 @@ import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.BaseAdapter;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.ListView;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.gson.Gson;
 import com.group6.babytime.R;
 import com.group6.babytime.pojo.ListActivityBean;
 import com.group6.babytime.titlebar.TitleBar;
+
+import org.xutils.common.Callback;
+import org.xutils.http.RequestParams;
+import org.xutils.x;
 
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -28,6 +38,8 @@ import butterknife.InjectView;
 
 
 public class YimiaoInfoActivity extends AppCompatActivity {
+
+
     @InjectView(R.id.tv_zhuangtai)
     TextView tvZhuangtai;
     @InjectView(R.id.Spinner_ztai)
@@ -48,10 +60,17 @@ public class YimiaoInfoActivity extends AppCompatActivity {
     private List<String> list = new ArrayList<String>();
     private TextView myTextView;
     private Spinner mySpinner;
-    private ArrayAdapter<String> adapter;
     private TitleBar titlebar;
+    private ArrayAdapter<String> adapter;
 
-    ListActivityBean.YimiaoInfo yimaio;//疫苗信息
+    ListActivityBean.YimiaoInfo yimiao;//疫苗信息
+
+
+    private static final String TAG = "YimiaoInfoActivity";
+    //private ListView lv_list;
+    private BaseAdapter baseAdapter;
+
+    final List<ListActivityBean.YimiaoInfo> dongtaiList = new ArrayList<ListActivityBean.YimiaoInfo>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -71,7 +90,18 @@ public class YimiaoInfoActivity extends AppCompatActivity {
         });
 
 
+       // ListActivityBean.YimiaoInfo dongtai = dongtaiList.get(position);
+//                tvJieshao.setText(dongtai.description);
+        Intent intent1=getIntent();
+       yimiao=intent1.getParcelableExtra("yimiaoInfo");
+        Log.i(TAG, "onCreate: ====="+yimiao);
+//        Log.i(TAG, "onCreate: "+yimiao.describeContents());
+
+        tvJieshao.setText(yimiao.description);
+
+
         //第一步：添加一个下拉列表项的list，这里添加的项就是下拉列表的菜单项
+        //list.add("未接种");
         list.add("未接种");
         list.add("已接种");
         myTextView = (TextView) findViewById(R.id.tv_zhuangtai);
@@ -138,7 +168,82 @@ public class YimiaoInfoActivity extends AppCompatActivity {
                 }
             }
         });
+//        baseAdapter = new BaseAdapter() {
+//
+//
+//            private TextView tvJieshao;
+//
+//            @Override
+//            public int getCount() {
+//                return dongtaiList.size();
+//            }
+//
+//            @Override
+//            public Object getItem(int position) {
+//                return 0;
+//            }
+//
+//            @Override
+//            public long getItemId(int position) {
+//                return 0;
+//            }
+//
+//            @Override
+//            public View getView(int position, View convertView, ViewGroup parent) {
+//                Log.i(TAG, "加载第 i个position" + position);
+//                View view = View.inflate(YimiaoInfoActivity.this, R.layout.activity_yimiao_info, null);
+//
+//                tvJieshao = ((TextView) view.findViewById(R.id.tv_jieshao));
+//
+//                ListActivityBean.YimiaoInfo dongtai = dongtaiList.get(position);
+//                tvJieshao.setText(dongtai.description);
+//                return view;
+//            }
+//        };
+        //lv_list.setAdapter(baseAdapter);
+
+        //getDongtaiList();
+
     }
+
+//    private List<ListActivityBean.YimiaoInfo> getDongtaiList() {
+//        RequestParams params = new RequestParams("http://10.40.5.43:8080/babytime/yimiao");
+//        x.http().get(params, new Callback.CommonCallback<String>() {
+//            @Override
+//            public void onSuccess(String result) {
+//                Log.i(TAG, "onSuccess: ----->"+result);
+//                Gson gson = new Gson();
+//                ListActivityBean bean = gson.fromJson(result, ListActivityBean.class);
+//
+//                //System.out.println(bean.status);
+//                //System.out.println(bean);
+//                dongtaiList.addAll(bean.dongtailist);
+//                //更新页面
+//                baseAdapter.notifyDataSetChanged();
+//            }
+//
+//            @Override
+//            public void onError(Throwable ex, boolean isOnCallback) {
+//
+//                System.out.println(ex);
+//            }
+//
+//            @Override
+//            public void onCancelled(Callback.CancelledException cex) {
+//
+//            }
+//
+//            @Override
+//            public void onFinished() {
+//
+//            }
+//        });
+//        return null;
+
+
+
+
+
 
 
 
@@ -154,5 +259,7 @@ public class YimiaoInfoActivity extends AppCompatActivity {
         datePickerDialog.show();
 
     }
+
+
 }
 

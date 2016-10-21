@@ -2,6 +2,7 @@ package com.group6.babytime.babyevent;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Parcelable;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
@@ -30,7 +31,7 @@ import java.util.List;
 public class YimiaoActivity extends AppCompatActivity {
     private static final String TAG = "YimiaoActivity";
     private ListView lv_list;
-    private BaseAdapter adapter;
+    private BaseAdapter baseAdapter;
 
     final List<ListActivityBean.YimiaoInfo> dongtaiList = new ArrayList<ListActivityBean.YimiaoInfo>();
     private TitleBar titlebar;
@@ -61,12 +62,13 @@ public class YimiaoActivity extends AppCompatActivity {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 System.out.println(position);
                 Intent intent=new Intent(getApplicationContext(),YimiaoInfoActivity.class);
+                intent.putExtra("yimiaoInfo", dongtaiList.get(position));
                 startActivity(intent);
             }
         });
 
 
-        adapter = new BaseAdapter() {
+        baseAdapter = new BaseAdapter() {
             private ImageView iv_touxiang;
             //private Button bt_status;
             private TextView title;
@@ -110,7 +112,7 @@ public class YimiaoActivity extends AppCompatActivity {
                 return view;
             }
         };
-        lv_list.setAdapter(adapter);
+        lv_list.setAdapter(baseAdapter);
 
         getDongtaiList();
 
@@ -129,7 +131,7 @@ public class YimiaoActivity extends AppCompatActivity {
                 System.out.println(bean);
                 dongtaiList.addAll(bean.dongtailist);
                 //更新页面
-                adapter.notifyDataSetChanged();
+                baseAdapter.notifyDataSetChanged();
             }
 
             @Override

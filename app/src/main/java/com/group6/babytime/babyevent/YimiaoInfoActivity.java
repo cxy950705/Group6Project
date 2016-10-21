@@ -89,7 +89,9 @@ public class YimiaoInfoActivity extends AppCompatActivity {
         titlebar.setImgLeftOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(YimiaoInfoActivity.this, "你点击了疫苗详情", Toast.LENGTH_SHORT).show();
+                Intent intent=new Intent(getApplicationContext(), YimiaoActivity.class);
+                startActivity(intent);
+                //Toast.makeText(YimiaoInfoActivity.this, "你点击了疫苗详情", Toast.LENGTH_SHORT).show();
             }
         });
 

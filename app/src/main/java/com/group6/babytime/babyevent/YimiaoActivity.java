@@ -17,6 +17,7 @@ import android.widget.Toast;
 
 import com.google.gson.Gson;
 import com.group6.babytime.R;
+import com.group6.babytime.fragment.BabyEventFragment;
 import com.group6.babytime.pojo.ListActivityBean;
 import com.group6.babytime.titlebar.TitleBar;
 
@@ -52,7 +53,10 @@ public class YimiaoActivity extends AppCompatActivity {
         titlebar.setImgLeftOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(YimiaoActivity.this,"你点击了疫苗接种",Toast.LENGTH_SHORT).show();
+                finish();
+//                Intent intent=new Intent(getApplicationContext(), BabyEventFragment.class);
+//                startActivity(intent);
+               // Toast.makeText(YimiaoActivity.this,"你点击了疫苗接种",Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -130,6 +134,7 @@ public class YimiaoActivity extends AppCompatActivity {
             public void onSuccess(String result) {
                 Gson gson = new Gson();
                 ListActivityBean bean = gson.fromJson(result, ListActivityBean.class);
+
 
                 System.out.println(bean.status);
                 System.out.println(bean);

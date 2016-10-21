@@ -105,6 +105,10 @@ public class YimiaoActivity extends AppCompatActivity {
                 ListActivityBean.YimiaoInfo dongtai = dongtaiList.get(position);
 
                 bt_status.setText(dongtai.status);
+                Bundle extras=getIntent().getExtras();
+                if (extras != null) {
+                    bt_status.setText(extras.getString("isInjected"));
+                }
                 title.setText(dongtai.name);
                 info.setText("宝宝"+String.valueOf(dongtai.month)+"个月了");
 

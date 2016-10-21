@@ -29,8 +29,10 @@ import org.xutils.common.Callback;
 import org.xutils.http.RequestParams;
 import org.xutils.x;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 import butterknife.ButterKnife;
@@ -62,6 +64,7 @@ public class YimiaoInfoActivity extends AppCompatActivity {
     private Spinner mySpinner;
     private TitleBar titlebar;
     private ArrayAdapter<String> adapter;
+    private Date today;
 
     ListActivityBean.YimiaoInfo yimiao;//疫苗信息
 
@@ -81,6 +84,7 @@ public class YimiaoInfoActivity extends AppCompatActivity {
         titlebar = ((TitleBar) findViewById(R.id.titlebar));
 
         titlebar.setTitle("疫苗详情");
+        titlebar.setTvRight("保存");
         titlebar.setImgLeftRes(R.drawable.arro_left);
         titlebar.setImgLeftOnClickListener(new View.OnClickListener() {
             @Override
@@ -90,12 +94,11 @@ public class YimiaoInfoActivity extends AppCompatActivity {
         });
 
 
-       // ListActivityBean.YimiaoInfo dongtai = dongtaiList.get(position);
-//                tvJieshao.setText(dongtai.description);
-        Intent intent1=getIntent();
-       yimiao=intent1.getParcelableExtra("yimiaoInfo");
-        Log.i(TAG, "onCreate: ====="+yimiao);
-//        Log.i(TAG, "onCreate: "+yimiao.describeContents());
+
+
+        Intent intent1 = getIntent();
+        yimiao = intent1.getParcelableExtra("yimiaoInfo");
+        Log.i(TAG, "onCreate: =====" + yimiao);
 
         tvJieshao.setText(yimiao.description);
 
@@ -108,6 +111,10 @@ public class YimiaoInfoActivity extends AppCompatActivity {
         mySpinner = (Spinner) findViewById(R.id.Spinner_ztai);
         mEditText = (EditText) findViewById(R.id.edit_riqi);
 
+        SimpleDateFormat dateFormat=new SimpleDateFormat("yyyy-MM-dd");
+        today=new Date();
+        mEditText.setText(dateFormat.format(today));
+
         //第二步：为下拉列表定义一个适配器，这里就用到里前面定义的list。
         adapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, list);
         //第三步：为适配器设置下拉列表下拉时的菜单样式。
@@ -116,12 +123,20 @@ public class YimiaoInfoActivity extends AppCompatActivity {
         mySpinner.setAdapter(adapter);
         //第五步：为下拉列表设置各种事件的响应，这个事响应菜单被选中
         mySpinner.setOnItemSelectedListener(new Spinner.OnItemSelectedListener() {
-            public void onItemSelected(AdapterView<?> arg0, View arg1, int arg2, long arg3) {
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long arg3) {
                 // TODO Auto-generated method stub
                 /* 将所选mySpinner 的值带入myTextView 中*//*
                 myTextView.setText("您选择的是："+ adapter.getItem(arg2));*/
                 /* 将mySpinner 显示*/
-                arg0.setVisibility(View.VISIBLE);
+
+
+                parent.setVisibility(View.VISIBLE);
+                String isInjected=(String)mySpinner.getItemAtPosition(position);
+
+                Bundle bundle=new Bundle();
+                bundle.putString("isInjected",isInjected);
+                Intent intent=new Intent(YimiaoInfoActivity.this,YimiaoActivity.class);
+                intent.putExtras(bundle);
             }
 
             public void onNothingSelected(AdapterView<?> arg0) {
@@ -153,110 +168,32 @@ public class YimiaoInfoActivity extends AppCompatActivity {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
                 if (event.getAction() == MotionEvent.ACTION_DOWN) {
+//                    datePickerDialog.show();
                     showDatePickDlg();
                     return true;
                 }
                 return false;
             }
         });
-        mEditText.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+        mEditText.setOnClickListener(new View.OnClickListener() {
 
             @Override
-            public void onFocusChange(View v, boolean hasFocus) {
-                if (hasFocus) {
-                    showDatePickDlg();
-                }
+            public void onClick(View v) {
+                showDatePickDlg();
             }
+
         });
-//        baseAdapter = new BaseAdapter() {
-//
-//
-//            private TextView tvJieshao;
-//
-//            @Override
-//            public int getCount() {
-//                return dongtaiList.size();
-//            }
-//
-//            @Override
-//            public Object getItem(int position) {
-//                return 0;
-//            }
-//
-//            @Override
-//            public long getItemId(int position) {
-//                return 0;
-//            }
-//
-//            @Override
-//            public View getView(int position, View convertView, ViewGroup parent) {
-//                Log.i(TAG, "加载第 i个position" + position);
-//                View view = View.inflate(YimiaoInfoActivity.this, R.layout.activity_yimiao_info, null);
-//
-//                tvJieshao = ((TextView) view.findViewById(R.id.tv_jieshao));
-//
-//                ListActivityBean.YimiaoInfo dongtai = dongtaiList.get(position);
-//                tvJieshao.setText(dongtai.description);
-//                return view;
-//            }
-//        };
-        //lv_list.setAdapter(baseAdapter);
-
-        //getDongtaiList();
-
     }
-
-//    private List<ListActivityBean.YimiaoInfo> getDongtaiList() {
-//        RequestParams params = new RequestParams("http://10.40.5.43:8080/babytime/yimiao");
-//        x.http().get(params, new Callback.CommonCallback<String>() {
-//            @Override
-//            public void onSuccess(String result) {
-//                Log.i(TAG, "onSuccess: ----->"+result);
-//                Gson gson = new Gson();
-//                ListActivityBean bean = gson.fromJson(result, ListActivityBean.class);
-//
-//                //System.out.println(bean.status);
-//                //System.out.println(bean);
-//                dongtaiList.addAll(bean.dongtailist);
-//                //更新页面
-//                baseAdapter.notifyDataSetChanged();
-//            }
-//
-//            @Override
-//            public void onError(Throwable ex, boolean isOnCallback) {
-//
-//                System.out.println(ex);
-//            }
-//
-//            @Override
-//            public void onCancelled(Callback.CancelledException cex) {
-//
-//            }
-//
-//            @Override
-//            public void onFinished() {
-//
-//            }
-//        });
-//        return null;
-
-
-
-
-
-
-
-
     protected void showDatePickDlg() {
         Calendar calendar = Calendar.getInstance();
         DatePickerDialog datePickerDialog = new DatePickerDialog(YimiaoInfoActivity.this, new DatePickerDialog.OnDateSetListener() {
 
             @Override
             public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
-                YimiaoInfoActivity.this.mEditText.setText(year + "-" + monthOfYear + "-" + dayOfMonth);
+                YimiaoInfoActivity.this.mEditText.setText(year + "-" + (monthOfYear+1) + "-" + dayOfMonth);
             }
         }, calendar.get(Calendar.YEAR), calendar.get(Calendar.MONTH), calendar.get(Calendar.DAY_OF_MONTH));
-        datePickerDialog.show();
+            datePickerDialog.show();
 
     }
 

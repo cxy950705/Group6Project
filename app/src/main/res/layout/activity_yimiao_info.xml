@@ -1,18 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".babyevent.YimiaoInfoActivity">
 
-    <com.group6.babytime.titlebar.TitleBar
+   <!-- <com.group6.babytime.titlebar.TitleBar
        android:id="@+id/titlebar"
-        android:layout_marginTop="50dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_above="@+id/llyimiao">
+  </com.group6.babytime.titlebar.TitleBar>-->
+    <com.group6.babytime.titlebar.TitleBar
+        android:id="@+id/titlebar"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:layout_above="@+id/zhengtil">
+    </com.group6.babytime.titlebar.TitleBar>
 
-  </com.group6.babytime.titlebar.TitleBar>
+<LinearLayout
+    android:layout_marginTop="50dp"
+    android:orientation="vertical"
+    android:id="@+id/zhengtil"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"/>
     <LinearLayout
         android:id="@+id/llyimiao"
         android:orientation="vertical"
@@ -68,4 +80,4 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
     </LinearLayout>
-</RelativeLayout>
+</LinearLayout>

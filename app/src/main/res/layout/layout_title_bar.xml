@@ -19,6 +19,14 @@
         android:textSize="24dp"
         android:layout_centerHorizontal="true"
     />
+    <TextView
+        android:id="@+id/tv_right"
+        android:layout_width="50dp"
+        android:layout_height="40dp"
+        android:textSize="21sp"
+        android:text=" "
+        android:layout_marginRight="10dp"
+        android:layout_alignParentRight="true"/>
 
 
 </RelativeLayout>

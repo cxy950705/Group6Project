@@ -18,6 +18,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:gravity="center"
+            android:background="@drawable/guide_round_selector"
             android:orientation="horizontal"
             android:padding="10dip" >
 
@@ -28,7 +29,7 @@
                 android:gravity="center"
                 android:text="排行"
                 android:textColor="#0000FF"
-                android:textSize="15dip" />
+                android:textSize="20sp" />
         </LinearLayout>
 
         <LinearLayout
@@ -36,6 +37,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:background="@drawable/guide_round_selector"
             android:clickable="true"
             android:gravity="center"
             android:orientation="horizontal"
@@ -49,7 +51,7 @@
                 android:gravity="center"
                 android:text="童话故事"
                 android:textColor="#000000"
-                android:textSize="15dip" />
+                android:textSize="20sp" />
         </LinearLayout>
 
         <LinearLayout
@@ -57,6 +59,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:background="@drawable/guide_round_selector"
             android:focusable="false"
             android:gravity="center"
             android:orientation="horizontal"
@@ -69,14 +72,15 @@
                 android:gravity="center"
                 android:text="儿歌"
                 android:textColor="#000000"
-                android:textSize="15dip" />
+                android:textSize="20sp" />
         </LinearLayout>
     </LinearLayout>
 
     <ImageView
         android:id="@+id/id_tab_line_iv"
-        android:layout_width="200dp"
-        android:layout_height="wrap_content"
+        android:layout_width="100dp"
+        android:background="@drawable/tab_selected_pressed_holo"
+        android:layout_height="4dp"
         android:contentDescription="tab" >
     </ImageView>
 

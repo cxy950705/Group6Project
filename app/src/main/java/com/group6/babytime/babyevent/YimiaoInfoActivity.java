@@ -95,9 +95,6 @@ public class YimiaoInfoActivity extends AppCompatActivity {
             }
         });
 
-
-
-
         Intent intent1 = getIntent();
         yimiao = intent1.getParcelableExtra("yimiaoInfo");
         Log.i(TAG, "onCreate: =====" + yimiao);

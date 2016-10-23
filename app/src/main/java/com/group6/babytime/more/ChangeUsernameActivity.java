@@ -1,6 +1,9 @@
 package com.group6.babytime.more;
 
 
+import android.content.Context;
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
@@ -8,8 +11,16 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.group6.babytime.R;
+import com.group6.babytime.fragment.MoreFragment;
+import com.group6.babytime.usermanage.Login;
+import com.group6.babytime.utils.DataCleanManager;
+
+import org.xutils.common.Callback;
+import org.xutils.http.RequestParams;
+import org.xutils.x;
 
 public class ChangeUsernameActivity extends AppCompatActivity implements View.OnClickListener{
     private TextView bar_title;
@@ -37,6 +48,7 @@ public class ChangeUsernameActivity extends AppCompatActivity implements View.On
         }
         setContentView(R.layout.activity_change_username);
         back_to_menu.setOnClickListener(this);
+        btn_save.setOnClickListener(this);
 
         initView();
 
@@ -52,6 +64,48 @@ public class ChangeUsernameActivity extends AppCompatActivity implements View.On
         switch (v.getId()){
             case R.id.backtomenu:
                 finish();
+                break;
+
+            case R.id.btn_save:
+                changeNickname();
+                break;
         }
+    }
+
+    public void changeNickname(){
+        RequestParams params=new RequestParams("http://10.40.5.37:8080/Login/AddNickname");
+
+        SharedPreferences sp=getSharedPreferences("user", Context.MODE_PRIVATE);
+        String username=sp.getString("username","");
+        String nickname=et_new_nickname.getText().toString().trim();
+
+        params.addQueryStringParameter("nickname", nickname);
+        params.addQueryStringParameter("username",username);
+
+        x.http().get(params, new Callback.CommonCallback<String>(){
+
+            @Override
+            public void onSuccess(String result) {
+
+                Intent intent=new Intent(ChangeUsernameActivity.this,MoreFragment.class);
+                startActivity(intent);
+                Toast.makeText(ChangeUsernameActivity.this, "修改成功", Toast.LENGTH_SHORT).show();
+            }
+
+            @Override
+            public void onError(Throwable ex, boolean isOnCallback) {
+
+            }
+
+            @Override
+            public void onCancelled(CancelledException cex) {
+
+            }
+
+            @Override
+            public void onFinished() {
+
+            }
+        });
     }
 }

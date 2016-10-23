@@ -21,4 +21,11 @@ public class StringUtils {
         return isValid;
 
     }
+
+    public static boolean isNewPasswordValidate(String password){
+        if(password.trim().length() <8 || password.trim().length() <24){
+            return false;
+        }
+        return true;
+    }
 }

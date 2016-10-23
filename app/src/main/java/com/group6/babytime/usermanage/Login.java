@@ -87,8 +87,8 @@ public class Login extends AppCompatActivity {
     private void login(){
          RequestParams params=new RequestParams("http://10.40.5.37:8080/Login/CheckLogin");
 
-        String userName = et_username.getText().toString().trim();
-        String password = et_password.getText().toString().trim();
+        final String userName = et_username.getText().toString().trim();
+        final String password = et_password.getText().toString().trim();
         params.addBodyParameter("username",userName);
         params.addBodyParameter("password",password);
         x.http().post(params, new Callback.CommonCallback<String>() {
@@ -96,6 +96,12 @@ public class Login extends AppCompatActivity {
             @Override
             public void onSuccess(String result) {
                 if(result.equals("登录成功")){
+
+                    SharedPreferences sp=getSharedPreferences("user",MODE_PRIVATE);
+                    SharedPreferences.Editor editor=sp.edit();
+                    editor.putString("password",password);
+                    editor.putString("username",userName);
+                    editor.commit();
                     Intent login_intent=new Intent(Login.this, MainActivity.class);
                     startActivity(login_intent);
                     Toast.makeText(x.app(), "登录成功", Toast.LENGTH_SHORT).show();

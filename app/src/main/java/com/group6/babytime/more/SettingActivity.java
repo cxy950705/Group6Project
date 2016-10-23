@@ -14,8 +14,10 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.Switch;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.group6.babytime.R;
+import com.group6.babytime.utils.DataCleanManager;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -70,6 +72,7 @@ public class SettingActivity extends AppCompatActivity implements View.OnClickLi
 
 
         btn_changepassword.setOnClickListener(this);
+        btn_clearcache.setOnClickListener(this);
 
         ListViewAdapter mAdapter=new ListViewAdapter(this.getApplicationContext());
         lv_enableWIFI.setAdapter(mAdapter);
@@ -97,6 +100,11 @@ public class SettingActivity extends AppCompatActivity implements View.OnClickLi
             case R.id.btn_changepassword:
                 Intent intent1=new Intent(this.getApplicationContext(),ChangePasswordActivity.class);
                 startActivity(intent1);
+                break;
+
+            case R.id.clear_cache:
+                DataCleanManager.cleanApplicationData(this.getApplicationContext());
+                Toast.makeText(this,"清除成功",Toast.LENGTH_SHORT).show();
                 break;
         }
     }

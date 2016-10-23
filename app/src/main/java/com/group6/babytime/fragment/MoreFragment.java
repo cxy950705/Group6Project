@@ -2,14 +2,13 @@ package com.group6.babytime.fragment;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -20,6 +19,7 @@ import android.widget.TextView;
 import com.group6.babytime.R;
 import com.group6.babytime.more.AboutProductActivity;
 import com.group6.babytime.more.BuyActivity;
+import com.group6.babytime.more.ChangeUsernameActivity;
 import com.group6.babytime.more.ConsumateUserInfoActivity;
 import com.group6.babytime.more.FeedBackActivity;
 import com.group6.babytime.more.SettingActivity;
@@ -46,7 +46,7 @@ public class MoreFragment extends Fragment implements View.OnClickListener{
 
     private String username="2333";// 用户名
     private int user_icon=R.id.user_icon;//用户头像
-    private String infoIsComplete="abc";//判断用户信息是否完善
+    private String infoIsComplete="亲你的信息还没有完善哦";//判断用户信息是否完善
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -119,6 +119,7 @@ public class MoreFragment extends Fragment implements View.OnClickListener{
 
 
 
+
     private class ListViewAdapter extends BaseAdapter {
         private LayoutInflater mLayoutInflater;
 
@@ -155,8 +156,18 @@ public class MoreFragment extends Fragment implements View.OnClickListener{
             }else {
                 holder=(ViewHolder)convertView.getTag();
             }
-//            Bundle bundle=getArguments();
-//            holder.Username.setText(bundle.getString("user_value"));
+
+            SharedPreferences sp=getActivity().getSharedPreferences("user",Context.MODE_PRIVATE);
+
+            Bundle bundle=new Bundle();
+            if (bundle == null) {
+                String username=sp.getString("username","");
+                holder.Username.setText(username);
+            }else{
+                String username=bundle.getString("result");
+                holder.Username.setText(username);
+            }
+
 
             convertView.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -166,8 +177,7 @@ public class MoreFragment extends Fragment implements View.OnClickListener{
 
                 }
             });
-            holder.Username.setText(username);
-            holder.tv_info.setText(infoIsComplete);
+            holder.tv_info.setText("亲，您还没有完善个人信息呢");
             return convertView;
         }
 

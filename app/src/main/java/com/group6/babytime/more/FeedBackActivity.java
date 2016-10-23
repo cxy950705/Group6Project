@@ -42,6 +42,7 @@ public class FeedBackActivity extends AppCompatActivity implements View.OnClickL
         setContentView(R.layout.activity_feed_back);
 
         back_to_menu.setOnClickListener(this);
+        btn_send.setOnClickListener(this);
 
         initView();
     }

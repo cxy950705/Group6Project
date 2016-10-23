@@ -1,10 +1,13 @@
-package com.group6.babytime;
+package com.group6.babytime.babyevent;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.os.Parcelable;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -13,6 +16,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.gson.Gson;
+import com.group6.babytime.R;
+import com.group6.babytime.fragment.BabyEventFragment;
 import com.group6.babytime.pojo.ListActivityBean;
 import com.group6.babytime.titlebar.TitleBar;
 
@@ -26,11 +31,12 @@ import java.util.List;
 
 public class YimiaoActivity extends AppCompatActivity {
     private static final String TAG = "YimiaoActivity";
-    private ListView list;
-    private BaseAdapter adapter;
+    private ListView lv_list;
+    private BaseAdapter baseAdapter;
 
     final List<ListActivityBean.YimiaoInfo> dongtaiList = new ArrayList<ListActivityBean.YimiaoInfo>();
     private TitleBar titlebar;
+//    private ListView list_ym;
 
 
     @Override
@@ -38,18 +44,35 @@ public class YimiaoActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.layout_list_yimiao);
         titlebar = ((TitleBar) findViewById(R.id.titlebar));
+//        list_ym = ((ListView) findViewById(R.id.list));
+
+
 
         titlebar.setTitle("疫苗接种");
         titlebar.setImgLeftRes(R.drawable.arro_left);
         titlebar.setImgLeftOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(YimiaoActivity.this,"你点击了疫苗接种",Toast.LENGTH_SHORT).show();
+                finish();
+//                Intent intent=new Intent(getApplicationContext(), BabyEventFragment.class);
+//                startActivity(intent);
+               // Toast.makeText(YimiaoActivity.this,"你点击了疫苗接种",Toast.LENGTH_SHORT).show();
             }
         });
 
-        list = ((ListView) findViewById(R.id.list));
-        adapter = new BaseAdapter() {
+        lv_list = ((ListView) findViewById(R.id.lv_list));
+        lv_list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                System.out.println(position);
+                Intent intent=new Intent(getApplicationContext(),YimiaoInfoActivity.class);
+                intent.putExtra("yimiaoInfo", dongtaiList.get(position));
+                startActivity(intent);
+            }
+        });
+
+
+        baseAdapter = new BaseAdapter() {
             private ImageView iv_touxiang;
             //private Button bt_status;
             private TextView title;
@@ -79,13 +102,17 @@ public class YimiaoActivity extends AppCompatActivity {
                 View view = View.inflate(YimiaoActivity.this, R.layout.activity_yimiao, null);
                 //iv_touxiang = ((ImageView) view.findViewById(R.id.iv_touxiang));
                 TextView title = ((TextView) view.findViewById(R.id.title));
-                Button bt_status = ((Button) view.findViewById(R.id.bu_status));
+                TextView bt_status = ((TextView) view.findViewById(R.id.bu_status));
                 TextView info = ((TextView) view.findViewById(R.id.info));
 
 
                 ListActivityBean.YimiaoInfo dongtai = dongtaiList.get(position);
 
                 bt_status.setText(dongtai.status);
+                Bundle extras=getIntent().getExtras();
+                if (extras != null) {
+                    bt_status.setText(extras.getString("isInjected"));
+                }
                 title.setText(dongtai.name);
                 info.setText("宝宝"+String.valueOf(dongtai.month)+"个月了");
 
@@ -93,7 +120,7 @@ public class YimiaoActivity extends AppCompatActivity {
                 return view;
             }
         };
-        list.setAdapter(adapter);
+        lv_list.setAdapter(baseAdapter);
 
         getDongtaiList();
 
@@ -108,11 +135,12 @@ public class YimiaoActivity extends AppCompatActivity {
                 Gson gson = new Gson();
                 ListActivityBean bean = gson.fromJson(result, ListActivityBean.class);
 
+
                 System.out.println(bean.status);
                 System.out.println(bean);
                 dongtaiList.addAll(bean.dongtailist);
                 //更新页面
-                adapter.notifyDataSetChanged();
+                baseAdapter.notifyDataSetChanged();
             }
 
             @Override

@@ -65,7 +65,12 @@
         <activity android:name=".more.ConsumateUserInfoActivity" />
         <activity android:name=".more.ChangeUsernameActivity" />
         <activity android:name=".more.ChangePasswordActivity" />
-        <activity android:name=".TestActivity"></activity>
+        <activity android:name=".TestActivity" />
+        <activity android:name=".babyevent.YimiaoActivity" />
+        <activity android:name=".babyevent.FirstActivity" />
+        <activity android:name=".babyevent.GrowActivity" />
+        <activity android:name=".babyevent.TingActivity"></activity>
+<activity android:name=".babyevent.YimiaoInfoActivity"/>
     </application>
 
 </manifest>

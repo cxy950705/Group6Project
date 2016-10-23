@@ -11,7 +11,10 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.group6.babytime.R;
-import com.group6.babytime.YimiaoActivity;
+import com.group6.babytime.babyevent.FirstActivity;
+import com.group6.babytime.babyevent.GrowActivity;
+import com.group6.babytime.babyevent.TingActivity;
+import com.group6.babytime.babyevent.YimiaoActivity;
 
 
 import butterknife.ButterKnife;
@@ -47,15 +50,6 @@ public class BabyEventFragment extends Fragment {
         View view = inflater.inflate(R.layout.baby_event_fragment, null);
         ButterKnife.inject(this, view);
         return view;
-        //tv_sec = ((TextView) findViewById(R.id.tv_sec));
-
-//        tv_sec.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                Intent inten = new Intent(getActivity(), YimiaoActivity.class);
-//                startActivity(inten);
-//            }
-//        });
     }
 
     @Override
@@ -68,15 +62,20 @@ public class BabyEventFragment extends Fragment {
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.tv_fir:
+                Intent inten1 = new Intent(getActivity(), FirstActivity.class);
+                startActivity(inten1);
                 break;
             case R.id.tv_sec:
-                Intent inten = new Intent(getActivity(), YimiaoActivity.class);
-                startActivity(inten);
-
+                Intent inten2 = new Intent(getActivity(), YimiaoActivity.class);
+                startActivity(inten2);
                 break;
             case R.id.tv_thir:
+                Intent inten3 = new Intent(getActivity(), GrowActivity.class);
+                startActivity(inten3);
                 break;
             case R.id.tv_fur:
+                Intent inten4 = new Intent(getActivity(), TingActivity.class);
+                startActivity(inten4);
                 break;
         }
     }

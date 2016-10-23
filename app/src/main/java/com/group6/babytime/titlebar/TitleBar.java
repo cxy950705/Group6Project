@@ -6,6 +6,7 @@ import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -21,6 +22,8 @@ public class TitleBar extends RelativeLayout {
 
     private TextView title;
     private ImageView imgLeft;
+    private TextView tvRight;
+
 
     public TitleBar(Context context) {
         super(context);
@@ -34,6 +37,7 @@ public class TitleBar extends RelativeLayout {
 
         title = ((TextView) view.findViewById(R.id.tv_title));
         imgLeft = ((ImageView) view.findViewById(R.id.iv_left));
+        tvRight = ((TextView) view.findViewById(R.id.tv_right));
 
     }
     public TitleBar(Context context, AttributeSet attrs, int defStyleAttr) {
@@ -50,6 +54,14 @@ public class TitleBar extends RelativeLayout {
     }
     public void setImgLeftOnClickListener(@Nullable OnClickListener l){
         imgLeft.setOnClickListener(l);
+    }
+
+    /*public void setTvRight(String title_str1) {
+        title.setText(title_str1);
+    }*/
+
+    public void setTvRight(String tvRight_str) {
+        tvRight.setText(tvRight_str);
     }
 }
 

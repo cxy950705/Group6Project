@@ -42,6 +42,7 @@ public class YimiaoActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.layout_list_yimiao);
+        getSupportActionBar().hide();
         titlebar = ((TitleBar) findViewById(R.id.titlebar));
         titlebar.setTitle("疫苗接种");
         titlebar.setImgLeftRes(R.drawable.arro_left);

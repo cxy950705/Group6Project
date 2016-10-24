@@ -49,12 +49,24 @@ public class GrowActivity extends FragmentActivity {
      * 屏幕的宽度
      */
     private int screenWidth;
+    private TitleBar titlebar;
 
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_grow);
+        titlebar = ((TitleBar) findViewById(R.id.titlebar));
+        titlebar.setTitle("成长记录");
+        titlebar.setImgLeftRes(R.drawable.arro_left);
+        titlebar.setImgLeftOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+
+            }
+        });
+
 
 
         findByid();

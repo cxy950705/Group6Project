@@ -13,6 +13,7 @@
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
 
     <application
+
         android:name=".application.MyApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -72,7 +73,7 @@
         <activity android:name=".babyevent.TingActivity" />
         <activity android:name=".babyevent.YimiaoInfoActivity" />
         <activity android:name=".babyevent.StoryContentActivity" />
-        <activity android:name=".babyevent.AddFirstActivity"></activity>
+        <activity android:name=".babyevent.AddFirstActivity" />
     </application>
 
 </manifest>

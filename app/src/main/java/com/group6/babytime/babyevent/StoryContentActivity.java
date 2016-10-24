@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
+import android.view.Window;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
@@ -44,6 +45,8 @@ public class StoryContentActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_story_content);
+       // requestWindowFeature(Window.FEATURE_NO_TITLE);//只在activity中实用，继承AppCompatActivity不能用
+        getSupportActionBar().hide();
         ButterKnife.inject(this);
         titlebar = ((TitleBar) findViewById(R.id.titlebar));
 

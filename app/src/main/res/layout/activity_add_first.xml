@@ -11,7 +11,7 @@
         android:layout_marginTop="5dp"
         android:layout_above="@+id/tv_add_content"
         android:layout_width="match_parent"
-        android:layout_height="30dp">
+        android:layout_height="60dp">
 
     </com.group6.babytime.titlebar.TitleBar>
     <EditText

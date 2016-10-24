@@ -79,6 +79,7 @@ public class YimiaoInfoActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_yimiao_info);
+        getSupportActionBar().hide();
         ButterKnife.inject(this);
 
         titlebar = ((TitleBar) findViewById(R.id.titlebar));

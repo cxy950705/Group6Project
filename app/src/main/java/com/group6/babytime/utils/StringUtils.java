@@ -21,4 +21,23 @@ public class StringUtils {
         return isValid;
 
     }
+
+    public static boolean isNewPasswordValidate(String password){
+        if(password.trim().length() <8 || password.trim().length() <24){
+            return false;
+        }
+        return true;
+    }
+
+    public static boolean isQQValidate(String QQNum){
+        boolean isValid = false;
+        String expression = "^[1-9]\\d{4,10}$";
+        CharSequence inputStr = QQNum;
+        Pattern pattern = Pattern.compile(expression);
+        Matcher matcher = pattern.matcher(inputStr);
+        if (matcher.matches()) {
+            isValid = true;
+        }
+        return isValid;
+    }
 }

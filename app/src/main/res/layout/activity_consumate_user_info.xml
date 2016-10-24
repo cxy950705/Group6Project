@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.group6.babytime.more.ConsumateUserInfoActivity">
+    <ListView
+        android:layout_marginTop="30dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/lv_usericon"
+        >
+
+    </ListView>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/btn_change_nickname"
+        android:text="@string/nickname"
+        android:background="#00000000"
+        android:gravity="start|center_vertical"
+        android:paddingLeft="16dp"
+        android:layout_below="@id/lv_usericon"
+        />
+</RelativeLayout>

@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.group6.babytime.babyevent.AddFirstActivity">
+
+    <com.group6.babytime.titlebar.TitleBar
+        android:id="@+id/titlebar"
+        android:layout_marginTop="5dp"
+        android:layout_above="@+id/tv_add_content"
+        android:layout_width="match_parent"
+        android:layout_height="60dp">
+
+    </com.group6.babytime.titlebar.TitleBar>
+    <EditText
+        android:id="@+id/tv_add_content"
+        android:layout_width="match_parent"
+        android:layout_height="250dp" />
+    <RelativeLayout
+        android:id="@+id/rl_addrecord_time"
+        android:layout_below="@+id/tv_add_content"
+        android:layout_width="match_parent"
+        android:layout_height="40dp">
+
+        <TextView
+            android:layout_centerVertical="true"
+            android:id="@+id/tv_recordtext"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="记录时间:"
+            android:textSize="23sp"/>
+
+        <TextView
+            android:layout_centerVertical="true"
+            android:id="@+id/tv_addfirst_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="2016-10-20"
+            android:textSize="23sp"
+            android:layout_marginLeft="160dp"
+            android:layout_toRightOf="@+id/tv_recordtext"
+            android:layout_alignParentRight="true"/>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rl_record_seat"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/rl_addrecord_time">
+        <TextView
+            android:id="@+id/tv_recordseat"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="23sp"
+            android:text="所在位置"
+            android:layout_centerVertical="true"/>
+        <EditText
+            android:id="@+id/et_location"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="苏州市吴中区仁爱路1号"
+            android:layout_toRightOf="@+id/tv_recordseat"/>
+    </RelativeLayout>
+    <ImageView
+        android:id="@+id/iv_addfirst_image"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:src="@drawable/add2"
+        android:layout_below="@+id/rl_record_seat"/>
+</LinearLayout>

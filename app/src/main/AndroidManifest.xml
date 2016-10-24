@@ -2,7 +2,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.group6.babytime">
 
-    <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
@@ -14,6 +13,7 @@
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
 
     <application
+
         android:name=".application.MyApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -23,7 +23,6 @@
         <activity android:name=".usermanage.LoginMainFrame" />
         <activity android:name=".usermanage.Login" />
         <activity android:name=".usermanage.Register" />
-        <activity android:name=".usermanage.Nickname" />
         >
         <activity android:name=".MainActivity">
             <intent-filter>
@@ -61,8 +60,20 @@
             android:theme="@android:style/Theme.Translucent.NoTitleBar"
             android:windowSoftInputMode="stateHidden|adjustResize" />
         <activity android:name=".more.BuyActivity" />
-        <activity android:name=".ablumactivity.AlbumInfoActivity" />
-        <activity android:name=".ablumactivity.ImagePageActivity"></activity>
+        <activity android:name=".more.FeedBackActivity" />
+        <activity android:name=".more.AboutProductActivity" />
+        <activity android:name=".more.SettingActivity" />
+        <activity android:name=".more.ConsumateUserInfoActivity" />
+        <activity android:name=".more.ChangeUsernameActivity" />
+        <activity android:name=".more.ChangePasswordActivity" />
+        <activity android:name=".TestActivity" />
+        <activity android:name=".babyevent.YimiaoActivity" />
+        <activity android:name=".babyevent.FirstActivity" />
+        <activity android:name=".babyevent.GrowActivity" />
+        <activity android:name=".babyevent.TingActivity" />
+        <activity android:name=".babyevent.YimiaoInfoActivity" />
+        <activity android:name=".babyevent.StoryContentActivity" />
+        <activity android:name=".babyevent.AddFirstActivity" />
     </application>
 
 </manifest>

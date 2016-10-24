@@ -3,6 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#ffffff"
+    android:id="@+id/rl_userinfo"
     >
 
     <TextView
@@ -69,6 +70,7 @@
     <Button
         style="@style/style_more_button"
         android:id="@+id/btn_recommend"
+        android:drawableLeft="@drawable/friend"
         android:text="@string/recommend"
         android:layout_below="@+id/btn_favorites"
         android:layout_marginTop="30dp"
@@ -77,8 +79,8 @@
     <Button
         style="@style/style_more_button"
         android:id="@+id/btn_about"
+        android:drawableLeft="@drawable/about"
         android:text="@string/about"
-        android:background="#ffffff"
         android:layout_below="@+id/btn_recommend"
         />
     </RelativeLayout>

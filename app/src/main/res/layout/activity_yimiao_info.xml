@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".babyevent.YimiaoInfoActivity">
+
+   <!-- <com.group6.babytime.titlebar.TitleBar
+       android:id="@+id/titlebar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/llyimiao">
+  </com.group6.babytime.titlebar.TitleBar>-->
+    <com.group6.babytime.titlebar.TitleBar
+        android:id="@+id/titlebar"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_above="@+id/zhengtil">
+    </com.group6.babytime.titlebar.TitleBar>
+
+<LinearLayout
+    android:layout_marginTop="50dp"
+    android:orientation="vertical"
+    android:id="@+id/zhengtil"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"/>
+    <LinearLayout
+        android:id="@+id/llyimiao"
+        android:orientation="vertical"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+    <LinearLayout
+        android:id="@+id/zhuangtai"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <TextView
+            android:id = "@+id/tv_zhuangtai"
+            android:layout_width = "wrap_content"
+            android:layout_height = "wrap_content"
+            android:text = "接种状态："
+            android:textSize="18sp"
+            android:layout_alignParentLeft="true"
+            />
+        <!-- 定义疫苗接种状态下拉菜单-->
+        <Spinner
+            android:id = "@+id/Spinner_ztai"
+            android:layout_marginLeft="150dp"
+            android:layout_width = "wrap_content"
+            android:layout_height ="50dp">
+        </Spinner >
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_riqi"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_below="@+id/zhuangtai">
+        <TextView
+            android:id="@+id/tv_riqi"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="6"
+            android:textSize="18sp"
+            android:text="接种日期" />
+
+        <EditText
+            android:id="@+id/edit_riqi"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="4"
+            android:ems="10" />
+    </LinearLayout>
+    <TextView
+        android:id="@+id/tv_jieshao"
+        android:layout_below="@+id/ll_riqi"
+        android:text="this是疫苗介绍"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+    </LinearLayout>
+</LinearLayout>

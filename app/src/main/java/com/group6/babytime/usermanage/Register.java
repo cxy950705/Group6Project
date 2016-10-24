@@ -201,7 +201,7 @@ public class Register extends AppCompatActivity implements View.OnClickListener 
             public void onSuccess(String result) {
                 if (result.equals("用户注册成功")) {
                     Toast.makeText(Register.this, "注册成功", Toast.LENGTH_SHORT).show();
-                    Intent intent = new Intent(Register.this, Nickname.class);
+                    Intent intent = new Intent(Register.this, Login.class);
                     startActivity(intent);
                 } else
                     Toast.makeText(Register.this, "注册失败，该用户已经存在", Toast.LENGTH_SHORT).show();

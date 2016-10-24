@@ -8,4 +8,7 @@
     <color name="tab_textcolor2">#666666</color>
 
     <color name="font_color_more">#686868</color>
+    <color name="border_clo">#ccc</color>
+    <color name="common_bg">#fcfcfc</color>
+
 </resources>

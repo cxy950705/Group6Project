@@ -28,4 +28,18 @@
         <item name="android:paddingLeft">20dp</item>
         <item name="android:button">?android:attr/borderlessButtonStyle</item>
     </style>
+
+    <!-- view中间分割线样式 -->
+    <style name="md_line">
+        <item name="android:layout_width">1px</item>
+        <item name="android:layout_height">12dp</item>
+        <item name="android:background">@color/border_clo</item>
+    </style>
+
+    <!-- view分割线样式 -->
+    <style name="bg_line">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">1px</item>
+        <item name="android:background">@color/border_clo</item>
+    </style>
 </resources>

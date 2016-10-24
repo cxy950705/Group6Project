@@ -9,6 +9,8 @@ import android.widget.ListView;
 import android.widget.RelativeLayout;
 
 import com.group6.babytime.R;
+import com.group6.babytime.fragment.BabyEventFragment;
+import com.group6.babytime.titlebar.TitleBar;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -21,11 +23,26 @@ public class FirstActivity extends Activity {
     private ListView lv_first_listview;
     List<String> data ;
     private TimelineAdapter timelineAdapter;
+    private TitleBar titlebar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_first);
+
+        titlebar = ((TitleBar) findViewById(R.id.titlebar));
+        titlebar.setTitle("宝宝第一次");
+        //titlebar.setTvRight("保存");
+        titlebar.setImgLeftRes(R.drawable.arro_left);
+        titlebar.setImgLeftOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+//                Intent intent=new Intent(getApplicationContext(), BabyEventFragment.class);
+//                startActivity(intent);
+                //Toast.makeText(YimiaoInfoActivity.this, "你点击了疫苗详情", Toast.LENGTH_SHORT).show();
+            }
+        });
 
         lv_first_listview = (ListView) this.findViewById(R.id.lv_first_listview);
         lv_first_listview.setDividerHeight(0);

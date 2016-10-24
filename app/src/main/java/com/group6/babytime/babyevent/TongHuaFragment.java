@@ -38,14 +38,6 @@ public class TongHuaFragment extends Fragment {
     List<Story> storyList = new ArrayList<Story>();
 
     private BaseAdapter baseAdapter;
-    /*@Override
-    protected void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.ctivity_tab_tonghuastory);
-
-        gridview = ((GridView) findViewById(R.id.gridview));
-        initData();
-    }*/
 
     @Nullable
     @Override

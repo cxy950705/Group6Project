@@ -53,8 +53,9 @@ public class StoryContentActivity extends AppCompatActivity {
         titlebar.setImgLeftOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), TongHuaFragment.class);
-                startActivity(intent);
+                finish();
+//                Intent intent = new Intent(getApplicationContext(), TongHuaFragment.class);
+//                startActivity(intent);
                 //Toast.makeText(YimiaoInfoActivity.this, "你点击了疫苗详情", Toast.LENGTH_SHORT).show();
             }
         });
@@ -77,10 +78,12 @@ public class StoryContentActivity extends AppCompatActivity {
                     }else
                     {
                         ivLikes.setImageDrawable(getResources().getDrawable(R.drawable.like_after));
+
                     }
                     isChanged = !isChanged;
 
                 }
+
             }
         });
             }

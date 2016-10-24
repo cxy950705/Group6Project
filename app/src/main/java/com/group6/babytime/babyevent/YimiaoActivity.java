@@ -33,30 +33,24 @@ public class YimiaoActivity extends AppCompatActivity {
     private static final String TAG = "YimiaoActivity";
     private ListView lv_list;
     private BaseAdapter baseAdapter;
-
     final List<ListActivityBean.YimiaoInfo> dongtaiList = new ArrayList<ListActivityBean.YimiaoInfo>();
     private TitleBar titlebar;
-//    private ListView list_ym;
+
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.layout_list_yimiao);
+        getSupportActionBar().hide();
         titlebar = ((TitleBar) findViewById(R.id.titlebar));
-//        list_ym = ((ListView) findViewById(R.id.list));
-
-
-
         titlebar.setTitle("疫苗接种");
         titlebar.setImgLeftRes(R.drawable.arro_left);
         titlebar.setImgLeftOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 finish();
-//                Intent intent=new Intent(getApplicationContext(), BabyEventFragment.class);
-//                startActivity(intent);
-               // Toast.makeText(YimiaoActivity.this,"你点击了疫苗接种",Toast.LENGTH_SHORT).show();
+
             }
         });
 

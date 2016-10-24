@@ -79,6 +79,7 @@ public class YimiaoInfoActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_yimiao_info);
+        getSupportActionBar().hide();
         ButterKnife.inject(this);
 
         titlebar = ((TitleBar) findViewById(R.id.titlebar));
@@ -94,9 +95,6 @@ public class YimiaoInfoActivity extends AppCompatActivity {
                 //Toast.makeText(YimiaoInfoActivity.this, "你点击了疫苗详情", Toast.LENGTH_SHORT).show();
             }
         });
-
-
-
 
         Intent intent1 = getIntent();
         yimiao = intent1.getParcelableExtra("yimiaoInfo");

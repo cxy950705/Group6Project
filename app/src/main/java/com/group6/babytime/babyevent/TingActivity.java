@@ -8,11 +8,13 @@ import android.support.v4.app.FragmentActivity;
 import android.support.v4.view.ViewPager;
 import android.util.DisplayMetrics;
 import android.util.Log;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.group6.babytime.R;
+import com.group6.babytime.titlebar.TitleBar;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -41,12 +43,22 @@ public class TingActivity extends FragmentActivity {
      * 屏幕的宽度
      */
     private int screenWidth;
-
+    private TitleBar titlebar;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ting);
+        titlebar = ((TitleBar) findViewById(R.id.titlebar));
+        titlebar.setTitle("宝宝听听");
+        titlebar.setImgLeftRes(R.drawable.arro_left);
+        titlebar.setImgLeftOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+
+            }
+        });
         
         findByid();
         init();

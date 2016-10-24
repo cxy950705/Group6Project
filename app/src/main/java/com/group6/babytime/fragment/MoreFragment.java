@@ -157,17 +157,9 @@ public class MoreFragment extends Fragment implements View.OnClickListener{
                 holder=(ViewHolder)convertView.getTag();
             }
 
-            SharedPreferences sp=getActivity().getSharedPreferences("user",Context.MODE_PRIVATE);
-
-            Bundle bundle=new Bundle();
-            if (bundle == null) {
+              SharedPreferences sp=getActivity().getSharedPreferences("user",Context.MODE_PRIVATE);
                 String username=sp.getString("username","");
                 holder.Username.setText(username);
-            }else{
-                String username=bundle.getString("result");
-                holder.Username.setText(username);
-            }
-
 
             convertView.setOnClickListener(new View.OnClickListener() {
                 @Override

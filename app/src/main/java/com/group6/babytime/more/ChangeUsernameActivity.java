@@ -86,10 +86,15 @@ public class ChangeUsernameActivity extends AppCompatActivity implements View.On
 
             @Override
             public void onSuccess(String result) {
-
+                SharedPreferences sp=getSharedPreferences("user",MODE_PRIVATE);
+                SharedPreferences.Editor editor=sp.edit();
+                editor.putString("username",result);
+                editor.commit();
+                Toast.makeText(ChangeUsernameActivity.this, "修改成功", Toast.LENGTH_SHORT).show();
                 Intent intent=new Intent(ChangeUsernameActivity.this,MoreFragment.class);
                 startActivity(intent);
-                Toast.makeText(ChangeUsernameActivity.this, "修改成功", Toast.LENGTH_SHORT).show();
+
+
             }
 
             @Override

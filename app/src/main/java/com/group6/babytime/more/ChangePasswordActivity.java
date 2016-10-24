@@ -80,28 +80,52 @@ public class ChangePasswordActivity extends AppCompatActivity implements View.On
                 finish();
                 break;
             case R.id.btn_save:
-                submitPassword();
+
+                if(!EditextIsEmpty()){
+                    Toast.makeText(this.getApplicationContext(),"输入的密码不能为空！",Toast.LENGTH_SHORT).show();
+                }else if(!isCorrectOldPassword()){
+                    Toast.makeText(this.getApplicationContext(),"旧密码不正确！",Toast.LENGTH_SHORT).show();
+                 }
+                else if(!isSamePassword()){
+                    Toast.makeText(this.getApplicationContext(),"新密码不能和旧密码一致",Toast.LENGTH_SHORT).show();
+                }else if(!isConfirmedPassword()){
+                    Toast.makeText(this.getApplicationContext(),"两次输入的密码不一致",Toast.LENGTH_SHORT).show();
+                }else{
+                    submitPassword();
+                }
                 break;
         }
+    }
+
+    private boolean isCorrectOldPassword(){
+        String old_password=et_old_password.getText().toString().trim();
+        SharedPreferences sp=getSharedPreferences("user", Context.MODE_PRIVATE);
+        String previous_password=sp.getString("password","");
+        if (old_password.equals(previous_password)) return true;
+        else return false;
     }
 
     private boolean EditextIsEmpty(){
         String new_password=et_new_password.getText().toString().trim();
         String old_password=et_old_password.getText().toString().trim();
         String confirm_password=et_comfirm_password.getText().toString().trim();
-        return !(old_password.equals("") || new_password.equals("") || confirm_password.equals(""));
+        if (!(old_password.equals("") || new_password.equals("") || confirm_password.equals("")))
+            return true;
+        else return false;
     }
 
     private boolean isSamePassword(){
         String new_password=et_new_password.getText().toString().trim();
         String old_password=et_old_password.getText().toString().trim();
-        return old_password.equals(new_password);
+        if (!old_password.equals(new_password)) return true;
+        else return false;
     }
 
     private boolean isConfirmedPassword(){
-        String new_password=et_old_password.getText().toString().trim();
+        String new_password=et_new_password.getText().toString().trim();
         String confirm_password=et_comfirm_password.getText().toString().trim();
-        return new_password.equals(confirm_password);
+        if (new_password.equals(confirm_password)) return true;
+        else return false;
     }
 
     private void submitPassword(){

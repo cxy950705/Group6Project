@@ -1,5 +1,7 @@
 package com.group6.babytime.more;
 
+import android.content.DialogInterface;
+import android.app.AlertDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.support.v7.app.ActionBar;
@@ -10,13 +12,13 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.Button;
-import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.group6.babytime.R;
+import com.group6.babytime.usermanage.Login;
 import com.group6.babytime.utils.DataCleanManager;
 
 import java.util.ArrayList;
@@ -64,7 +66,6 @@ public class SettingActivity extends AppCompatActivity implements View.OnClickLi
     };
 
     private void initView(){
-        btn_changephone = ((Button) findViewById(R.id.btn_changephone));
         btn_changepassword = ((Button) findViewById(R.id.btn_changepassword));
         lv_enableWIFI = ((ListView) findViewById(R.id.lv_enableWIFI));
         btn_clearcache = ((Button) findViewById(R.id.clear_cache));
@@ -73,6 +74,7 @@ public class SettingActivity extends AppCompatActivity implements View.OnClickLi
 
         btn_changepassword.setOnClickListener(this);
         btn_clearcache.setOnClickListener(this);
+        btn_logout.setOnClickListener(this);
 
         ListViewAdapter mAdapter=new ListViewAdapter(this.getApplicationContext());
         lv_enableWIFI.setAdapter(mAdapter);
@@ -98,7 +100,7 @@ public class SettingActivity extends AppCompatActivity implements View.OnClickLi
             case R.id.backtomenu:
                 finish();
             case R.id.btn_changepassword:
-                Intent intent1=new Intent(this.getApplicationContext(),ChangePasswordActivity.class);
+                final Intent intent1=new Intent(this.getApplicationContext(),ChangePasswordActivity.class);
                 startActivity(intent1);
                 break;
 
@@ -106,9 +108,33 @@ public class SettingActivity extends AppCompatActivity implements View.OnClickLi
                 DataCleanManager.cleanApplicationData(this.getApplicationContext());
                 Toast.makeText(this,"清除成功",Toast.LENGTH_SHORT).show();
                 break;
+            case R.id.btn_logout:
+                logoutDialog();
+                break;
         }
     }
 
+    protected void logoutDialog(){
+        AlertDialog.Builder builder=new AlertDialog.Builder(SettingActivity.this);
+        builder.setMessage("你确认是否退出登录?");
+        builder.setTitle("退出BabyTime");
+        builder.setPositiveButton("确认", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.dismiss();
+                DataCleanManager.cleanSharedPreference(getApplicationContext());
+                Intent intent=new Intent(SettingActivity.this, Login.class);
+                startActivity(intent);
+            }
+        });
+        builder.setNegativeButton("取消", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.dismiss();
+            }
+        });
+        builder.create().show();
+    }
     private class ListViewAdapter extends BaseAdapter {
         private LayoutInflater mLayoutInflater;
 

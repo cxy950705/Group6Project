@@ -81,7 +81,6 @@
         android:id="@+id/btn_about"
         android:drawableLeft="@drawable/about"
         android:text="@string/about"
-        android:background="#ffffff"
         android:layout_below="@+id/btn_recommend"
         />
     </RelativeLayout>

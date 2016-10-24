@@ -53,7 +53,6 @@ public class FirstActivity extends Activity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Intent intent=new Intent(getApplicationContext(),AddFirstActivity.class);
-               // intent.putExtra("storycontent", storyList.get(position));
                 startActivity(intent);
             }
         });

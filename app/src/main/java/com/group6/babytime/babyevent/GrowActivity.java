@@ -1,6 +1,7 @@
 package com.group6.babytime.babyevent;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -9,11 +10,15 @@ import android.support.v4.app.FragmentActivity;
 import android.support.v4.view.ViewPager;
 import android.util.DisplayMetrics;
 import android.util.Log;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.ListView;
 import android.widget.TextView;
 
 import com.group6.babytime.R;
+import com.group6.babytime.titlebar.TitleBar;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -51,9 +56,14 @@ public class GrowActivity extends FragmentActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_grow);
 
+
         findByid();
         init();
         initTabLineWidth();
+
+
+
+
     }
 
 

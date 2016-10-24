@@ -69,9 +69,10 @@
         <activity android:name=".babyevent.YimiaoActivity" />
         <activity android:name=".babyevent.FirstActivity" />
         <activity android:name=".babyevent.GrowActivity" />
-        <activity android:name=".babyevent.TingActivity"></activity>
-<activity android:name=".babyevent.YimiaoInfoActivity"/>
-        <activity android:name=".babyevent.StoryContentActivity"/>
+        <activity android:name=".babyevent.TingActivity" />
+        <activity android:name=".babyevent.YimiaoInfoActivity" />
+        <activity android:name=".babyevent.StoryContentActivity" />
+        <activity android:name=".babyevent.AddFirstActivity"></activity>
     </application>
 
 </manifest>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#fff"
+    tools:context="com.group6.babytime.home.AddBaby1Activity">
+
+    <include
+        android:id="@+id/addbaby1_top"
+        layout="@layout/dingbulayout2"
+        />
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/addbaby1_top">
+        <ImageView
+            android:id="@+id/iv_addbaby1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="50dp"
+            android:layout_marginTop="100dp"
+            android:src="@drawable/addbaby_boy"/>
+        <ImageView
+            android:id="@+id/iv_addbaby2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@id/iv_addbaby1"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="50dp"
+            android:src="@drawable/addbaby_girl"/>
+    </RelativeLayout>
+</RelativeLayout>

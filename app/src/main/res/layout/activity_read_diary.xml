@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#fff"
+    tools:context=".home.ReadDiaryActivity">
+    <include
+        android:id="@+id/readdiarypage_top"
+        layout="@layout/dingbulayout"/>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/readdiarypage_top">
+
+
+        <TextView
+            android:id="@+id/tv_zhengwen1"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:layout_marginLeft="10dp"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="10dp"
+            android:layout_centerHorizontal="true"
+
+            android:gravity="center"
+            android:background="#efefef"
+            android:textColor="#000000"
+            android:text="正文"/>
+        <ImageView
+            android:layout_width="150dp"
+            android:layout_height="100dp"
+            android:src="@drawable/addkuang"
+            android:layout_marginLeft="35dp"
+            android:layout_below="@id/tv_zhengwen1"
+            android:visibility="visible"
+            android:id="@+id/iv_riji1"/>
+        <ImageView
+            android:layout_width="150dp"
+            android:layout_height="100dp"
+            android:src="@drawable/addkuang"
+            android:layout_toRightOf="@id/iv_riji1"
+            android:layout_alignTop="@id/iv_riji1"
+            android:layout_marginLeft="10dp"
+            android:visibility="visible"
+            android:id="@+id/iv_riji2"/>
+        <ImageView
+            android:layout_width="150dp"
+            android:layout_height="100dp"
+            android:src="@drawable/addkuang"
+            android:layout_alignLeft="@id/iv_riji1"
+            android:layout_below="@id/iv_riji1"
+            android:visibility="visible"
+            android:id="@+id/iv_riji3"/>
+        <ImageView
+            android:layout_width="150dp"
+            android:layout_height="100dp"
+            android:src="@drawable/addkuang"
+            android:layout_toRightOf="@id/iv_riji3"
+            android:layout_alignTop="@id/iv_riji3"
+            android:layout_marginLeft="10dp"
+            android:visibility="visible"
+            android:id="@+id/iv_riji4"/>
+
+        <TextView
+            android:id="@+id/tv_time2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="10dp"
+            android:layout_margin="10dp"
+            android:layout_below="@id/iv_riji3"
+            android:text="写日记的时间：2016-01-03 "
+            android:textSize="14sp"
+            android:textColor="#777777"/>
+
+
+
+
+
+    </RelativeLayout>
+</RelativeLayout>

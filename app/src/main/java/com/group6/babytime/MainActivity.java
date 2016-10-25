@@ -10,17 +10,21 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.widget.RadioGroup;
 import android.widget.Toast;
 
 import com.group6.babytime.fragment.BaseActivity;
 import com.group6.babytime.fragment.FragmentFactory;
+import com.group6.babytime.fragment.HomeFragment;
+import com.group6.babytime.pojo.Baby;
 import com.group6.babytime.usermanage.LoginMainFrame;
 
 public class MainActivity extends BaseActivity {
     private FragmentManager fragmentManager;
     private RadioGroup mRadioGroup;
+    HomeFragment homeFragment;
 
     public boolean isFirstRun;
     private long exitTime = 0;
@@ -58,8 +62,29 @@ public class MainActivity extends BaseActivity {
                 transaction.commit();
             }
         });
+
+        getBabyId();
     }
 
+    private void getBabyId() {
+        homeFragment = new HomeFragment();
+        Intent intent= getIntent();
+        Baby babys;
+
+        babys= intent.getParcelableExtra("babyInfo");
+        Log.i("1111","getBabyId---------"+babys);
+
+        Bundle bundle = new Bundle();
+
+        bundle.putParcelable("babyInfo",babys);
+        Log.i("1111","getBabyId---------"+bundle);
+        homeFragment.setArguments(bundle);
+
+        FragmentTransaction transaction = fragmentManager.beginTransaction();
+
+        transaction.replace(R.id.frameLayout, homeFragment);
+        transaction.commit();
+    }
 
 
     @Override

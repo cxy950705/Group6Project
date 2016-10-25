@@ -37,6 +37,17 @@
         android:layout_alignBottom="@id/tv_date"
         android:src="@drawable/edit"/>
     <ImageView
+        android:id="@+id/iv_delete"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@id/iv_edit"
+
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="90dp"
+
+
+        android:src="@drawable/delete"/>
+    <ImageView
         android:id="@+id/iv_share"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -59,50 +70,55 @@
         android:background="#efefef"
         android:textColor="#000000"
         android:text="正文"/>
-    <ImageView
-        android:id="@+id/iv_collect"
+    <TextView
+        android:id="@+id/tv_time1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@id/iv_edit"
+        android:layout_centerVertical="true"
+        android:layout_margin="10dp"
         android:layout_below="@id/tv_zhengwen"
-        android:src="@drawable/collect"/>
+        android:text="记录时间：2016-01-03 20:34:12"
+        android:textSize="14sp"
+        android:textColor="#777777"/>
+    <ImageButton
+        android:id="@+id/btn_collect"
+        android:background="@drawable/iv_collect_selector"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_alignLeft="@id/iv_edit"
+        android:layout_alignTop="@id/tv_time1"
+
+        />
     <TextView
         android:id="@+id/tv_collect"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_toRightOf="@id/iv_collect"
-        android:layout_alignTop="@id/iv_collect"
+        android:layout_toRightOf="@id/btn_collect"
+        android:layout_alignTop="@id/btn_collect"
+        android:layout_marginLeft="10dp"
         android:textColor="#000000"
         android:text="1"/>
-    <ImageView
-        android:id="@+id/iv_new"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@id/iv_share"
-        android:layout_alignTop="@id/iv_collect"
-        android:src="@drawable/news"/>
     <TextView
-        android:id="@+id/tv_new"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_toRightOf="@id/iv_new"
-        android:layout_alignTop="@id/iv_collect"
-        android:textColor="#000000"
-        android:text="0"/>
-    <TextView
+        android:id="@+id/tv_pinglun"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="30dp"
         android:layout_alignParentRight="true"
         android:layout_marginRight="10dp"
-        android:layout_below="@id/iv_collect"
+        android:layout_below="@id/tv_time1"
+        android:background="#efefef"
+        android:textColor="#000000"
+        android:visibility="visible"
+        android:text="评论"/>
+    <TextView
+        android:id="@+id/tv_dianjipinglun"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="30dp"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="10dp"
+        android:layout_below="@id/tv_pinglun"
         android:background="#808080"
         android:text="点击这里进行评论"/>
-    <ImageView
-        android:id="@+id/iv_photo"
-        android:layout_width="1dp"
-        android:layout_height="1dp"
-        android:src="@drawable/fm_run_pic_default"
-        android:layout_marginLeft="20dp"
-        />
+
 </RelativeLayout>

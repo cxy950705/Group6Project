@@ -1,17 +1,101 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/RelativeLayout1"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".babyevent.TingActivity">
+    android:background="@drawable/music_background1">
 
-    <TextView
+
+    <ListView
+        android:id="@+id/music_list"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="儿歌界面"
-        android:textColor="#00FF00"
-        android:textSize="20sp"
-        android:gravity="center"
-        ></TextView>
+        android:layout_height="wrap_content"
 
+        android:layout_marginBottom="50dp" >
+    </ListView>
+
+    <RelativeLayout
+
+        android:id="@+id/singleSong_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true" >
+         //播放音乐图标标
+        <ImageView
+            android:background="@color/lemonchiffon"
+            android:id="@+id/music_album"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:src="@drawable/player_image"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentLeft="true" />
+
+        <RelativeLayout
+            android:background="@color/lemonchiffon"
+            android:id="@+id/music_about_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_alignParentBottom="true"
+            android:layout_alignTop="@+id/music_album"
+            android:layout_toRightOf="@id/music_album" >
+            //我是歌手，时长 的布局
+<LinearLayout
+    android:id="@+id/music_textall"
+    android:layout_width="150dp"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+            <TextView
+                android:id="@+id/text1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_marginTop="5.0dp"
+                android:layout_marginLeft="5.0dp"
+                android:textColor="@color/smssdk_black"
+                android:text="@string/siger"/>
+            <TextView
+                android:id="@+id/text2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/text1"
+                android:layout_alignParentLeft="true"
+                android:layout_marginLeft="5.0dp"
+                android:layout_marginTop="8.0dp"
+                android:textColor="@color/smssdk_black"
+                android:text="@string/time"/>"
 </LinearLayout>
+            //三个按钮：上一首，播放|暂停，下一首
+            <LinearLayout
+                android:id="@+id/music_play_button"
+                android:layout_toRightOf="@+id/music_textall"
+                android:orientation="horizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="45dp"
+                android:layout_alignParentRight="true">
+            <ImageView
+                android:layout_weight="1"
+                android:id="@+id/music_previous"
+                android:layout_width="20dp"
+                android:layout_height="45dp"
+                android:scaleType="fitCenter"
+                android:src="@drawable/music_previous"/>
+
+            <ImageView
+                android:layout_weight="1"
+                android:id="@+id/music_start"
+                android:layout_width="20dp"
+                android:layout_height="45dp"
+                android:src="@drawable/music_start"/>
+            <ImageView
+                android:layout_weight="1"
+                android:id="@+id/music_next"
+                android:layout_width="20dp"
+                android:layout_height="45dp"
+                android:src="@drawable/music_next"/>
+            </LinearLayout>
+        </RelativeLayout>
+    </RelativeLayout>
+
+</RelativeLayout>

@@ -61,4 +61,8 @@
     <string name="old_password">旧密码\n</string>
     <string name="new_password">新密码\n</string>
     <string name="confirm_password">确认新\n密码</string>
+
+    //音乐播放器底部歌手，时长。。
+    <string name="siger">我是歌手</string>
+    <string name="time">时长 04:34</string>
 </resources>

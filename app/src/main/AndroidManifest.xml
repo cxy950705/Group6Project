@@ -83,6 +83,7 @@
         <activity android:name=".ablumactivity.AlbumInfoActivity"/>
         <activity android:name=".ablumactivity.ImagePageActivity"/>
 
+
     </application>
 
 </manifest>

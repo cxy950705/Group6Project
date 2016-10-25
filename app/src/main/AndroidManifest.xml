@@ -74,6 +74,15 @@
         <activity android:name=".babyevent.YimiaoInfoActivity" />
         <activity android:name=".babyevent.StoryContentActivity" />
         <activity android:name=".babyevent.AddFirstActivity" />
+        <activity android:name=".home.ChangeBabyActivity"/>
+        <activity android:name=".home.ReadDiaryActivity"/>
+        <activity android:name=".home.WriteDiaryActivity"/>
+        <activity android:name=".home.AddBaby1Activity"/>
+        <activity android:name=".home.ChooseBabyActivity"/>
+        <activity android:name=".home.AddBaby2Activity"/>
+        <activity android:name=".ablumactivity.AlbumInfoActivity"/>
+        <activity android:name=".ablumactivity.ImagePageActivity"/>
+
     </application>
 
 </manifest>

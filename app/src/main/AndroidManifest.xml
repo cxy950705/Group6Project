@@ -13,6 +13,7 @@
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
 
     <application
+
         android:name=".application.MyApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -22,7 +23,6 @@
         <activity android:name=".usermanage.LoginMainFrame" />
         <activity android:name=".usermanage.Login" />
         <activity android:name=".usermanage.Register" />
-        <activity android:name=".usermanage.Nickname" />
         >
         <activity android:name=".MainActivity">
             <intent-filter>
@@ -60,12 +60,20 @@
             android:theme="@android:style/Theme.Translucent.NoTitleBar"
             android:windowSoftInputMode="stateHidden|adjustResize" />
         <activity android:name=".more.BuyActivity" />
-        <activity android:name=".home.ReadDiaryActivity" />
-        <activity android:name=".home.WriteDiaryActivity" />
-        <activity android:name=".home.ChangeBabyActivity" />
-        <activity android:name=".home.ChooseBabyActivity" />
-        <activity android:name=".home.AddBaby1Activity" />
-        <activity android:name=".home.AddBaby2Activity"></activity>
+        <activity android:name=".more.FeedBackActivity" />
+        <activity android:name=".more.AboutProductActivity" />
+        <activity android:name=".more.SettingActivity" />
+        <activity android:name=".more.ConsumateUserInfoActivity" />
+        <activity android:name=".more.ChangeUsernameActivity" />
+        <activity android:name=".more.ChangePasswordActivity" />
+        <activity android:name=".TestActivity" />
+        <activity android:name=".babyevent.YimiaoActivity" />
+        <activity android:name=".babyevent.FirstActivity" />
+        <activity android:name=".babyevent.GrowActivity" />
+        <activity android:name=".babyevent.TingActivity" />
+        <activity android:name=".babyevent.YimiaoInfoActivity" />
+        <activity android:name=".babyevent.StoryContentActivity" />
+        <activity android:name=".babyevent.AddFirstActivity" />
     </application>
 
 </manifest>

@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="80dp"
+    android:background="#ffffff"
+    android:focusable="false"
+    >
+    <RelativeLayout
+        android:id="@+id/id_photo_list_sort"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        >
+        <ImageView
+            android:id="@+id/photo_item_iv_left"
+            android:layout_width="74dp"
+            android:layout_height="74dp"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:padding="5dp"
+            android:src="@mipmap/ic_launcher"/>
+
+        <RelativeLayout
+            android:id="@+id/photo_item_list"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_alignBaseline="@id/photo_item_iv_left"
+            android:layout_toRightOf="@id/photo_item_iv_left">
+
+            <TextView
+                android:id="@+id/photo_item_name_tv1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:minLines="1"
+                android:maxLines="2"
+                android:textSize="24sp"
+                android:textColor="#444"
+                android:text="相册名称"
+
+                />
+            <TextView
+                android:id="@+id/photo_item_number_tv2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@+id/photo_item_name_tv1"
+
+                android:layout_marginLeft="20dp"
+                android:layout_alignTop="@id/photo_item_name_tv1"
+                android:textColor="#000"
+                android:text="30张"
+                android:textSize="20sp"
+                />
+            <ImageView
+                android:id="@+id/photo_item_list_tiaozhuan"
+                android:src="@drawable/jiantou"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="10dp"
+
+
+
+
+
+
+                />
+
+
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+
+
+
+
+</RelativeLayout>

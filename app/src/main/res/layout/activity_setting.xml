@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.group6.babytime.more.SettingActivity">
+
+    <ListView
+        android:id="@+id/lv_enableWIFI"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#00000000"
+        android:layout_marginTop="30dp"
+        >
+
+    </ListView>
+
+    <Button
+        android:id="@+id/btn_changepassword"
+        style="@style/style_button_settings"
+        android:text="@string/change_password"
+        android:layout_below="@+id/lv_enableWIFI"
+
+        />
+
+
+    <Button
+        android:id="@+id/clear_cache"
+        style="@style/style_button_settings"
+        android:text="@string/clear_cache"
+        android:layout_below="@+id/btn_changepassword"
+        />
+
+    <Button
+        style="@style/style_button_settings"
+        android:id="@+id/btn_logout"
+        android:text="@string/logout"
+        android:layout_below="@+id/clear_cache"
+        />
+
+
+
+</RelativeLayout>

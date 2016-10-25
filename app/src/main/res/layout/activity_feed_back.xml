@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.group6.babytime.more.FeedBackActivity">
+
+    <TextView
+        style="@style/style_more_feedback"
+        android:text="@string/suggestion"
+        android:id="@+id/tv_suggestion"
+        android:layout_marginTop="20dp"
+        />
+    <EditText
+        style="@style/style_edittext_feedback"
+        android:maxLength="100"
+        android:inputType="textMultiLine"
+        android:minLines="5"
+        android:maxLines="8"
+        android:scrollbars="vertical"
+        android:hint="@string/suggestion_hint"
+        android:id="@+id/et_suggestion"
+        android:layout_below="@id/tv_suggestion"
+        />
+
+    <TextView
+        style="@style/style_more_feedback"
+        android:text="@string/contact"
+        android:id="@+id/tv_contact"
+        android:layout_below="@+id/et_suggestion"
+        android:layout_marginTop="20dp"
+        />
+
+    <EditText
+       style="@style/style_edittext_feedback"
+        android:id="@+id/et_contact"
+        android:hint="@string/contact_hint"
+        android:layout_below="@id/tv_contact"
+        />
+
+    <TextView
+        style="@style/style_more_feedback"
+        android:text="@string/feedback_info"
+        android:id="@+id/tv_feedbackinfo"
+        android:layout_marginTop="20dp"
+        android:layout_below="@id/et_contact"
+        />
+
+
+
+</RelativeLayout>

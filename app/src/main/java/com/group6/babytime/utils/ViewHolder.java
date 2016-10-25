@@ -6,27 +6,33 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.group6.babytime.fragment.MoreFragment;
+
 /**
- * Created by xzj on 2016/10/9.
+ * Created by Administrator on 2016/10/18.
  */
 public class ViewHolder {
-
+    SparseArray<View> sparseArray;//key:默认是int类型，value：View
     View convertView;
-    SparseArray<View> sparseArray;//key:int;value:View
+
+
 
     //返回viewholder关联的convertview
     public View getConvertView(){
         return  convertView;
     }
 
-    public ViewHolder(Context context, int layoutId, ViewGroup parent){
+
+    public  ViewHolder(Context context, int layoutId, ViewGroup parent){
 
         //解析布局文件
 
         this.convertView= LayoutInflater.from(context).inflate(layoutId,null);
+
         convertView.setTag(this);
 
-        sparseArray = new SparseArray<View>();
+        sparseArray=new SparseArray<View>();
+
     }
 
 
@@ -50,6 +56,6 @@ public class ViewHolder {
             v= convertView.findViewById(resourceId);
             sparseArray.put(resourceId,v);
         }
-        return (T)v;//用的泛型的方法
+        return (T)v;
     }
 }

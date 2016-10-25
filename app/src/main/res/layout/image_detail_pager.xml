@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayoutLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+
+    tools:context=".ablumactivity.ImagePageActivity">
+    <com.group6.babytime.ablumactivity.HackyViewPage
+        android:id="@+id/page"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#f000"/>
+
+    <TextView
+        android:id="@+id/indicator"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:background="#686868"
+        android:gravity="center"
+        android:text="viewPage_ind"
+        android:textColor="@android:color/white"
+        android:textSize="18sp"/>
+
+
+
+</FrameLayoutLayout>

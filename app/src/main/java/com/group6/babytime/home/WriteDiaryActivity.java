@@ -21,6 +21,7 @@ import android.widget.Toast;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.group6.babytime.R;
+import com.group6.babytime.babyevent.xUtilsImageUtils;
 import com.group6.babytime.pojo.LogDiary;
 
 import org.xutils.common.Callback;
@@ -103,6 +104,7 @@ public class WriteDiaryActivity extends AppCompatActivity {
             month = logs.getLogDate().getMonth()+1;
             day = logs.getLogDate().getDate();
             tvTime2.setText("写日记的日期："+String.valueOf(year)+"年"+String.valueOf(month)+"月"+String.valueOf(day)+"日");
+            xUtilsImageUtils.display(ivRiji1,"http://10.40.5.2:8080/Group6/upload/"+logs.getLogPhoto(),false);
             babyid1 = logs.getBabyId();
         }else {
 
@@ -125,11 +127,18 @@ public class WriteDiaryActivity extends AppCompatActivity {
                 finish();
                 break;
             case R.id.iv_add:
-                Toast.makeText(WriteDiaryActivity.this,"保存发布",Toast.LENGTH_SHORT).show();
+
+                Toast.makeText(WriteDiaryActivity.this, "保存发布", Toast.LENGTH_SHORT).show();
+
                 RequestParams requestParams=new RequestParams("http://10.40.5.2:8080/Group6/insertlogdiaryservlet");//访问网络的url
                 LogDiary logDiary = new LogDiary();
 
-                logDiary.setUserId(9);
+                try {
+                    logDiary.setLogId(logs.getLogId());
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+                logDiary.setUserId(26);
                 Timestamp d = new Timestamp(System.currentTimeMillis());
                 logDiary.setLogDate(d);
                 logcontent = tvZhengwen1.getText().toString().trim();

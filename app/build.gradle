@@ -29,6 +29,8 @@ android {
         flatDir{
             dirs 'lib' //就是你放aar的目录地址
         }
+
+
     }
 
     }
@@ -47,4 +49,5 @@ dependencies {
     compile files('lib/MobTools-2016.0921.1136.jar')
     compile 'io.github.openfeign:feign-gson:9.3.1'
     compile 'com.jakewharton:butterknife:5.1.1'
+    compile 'com.github.glassLake:PhotoPicker:1.0.2'
 }

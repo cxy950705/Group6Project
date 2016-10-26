@@ -98,8 +98,8 @@ public class FragmentPage1 extends Fragment {
                 }.getType();
 
                 List<Album> newalbums = new ArrayList<Album>();
-                newalbums = gson.fromJson(result, type);//解析成List<Product
-                //products=gson.fromJson(result,type);//解析成List<Product>
+                newalbums = gson.fromJson(result, type);//解析成List<Album
+                //products=gson.fromJson(result,type);//解析成List<Album>
 
                 //清空原来的数据
                 albums.clear();

@@ -40,7 +40,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="70dp"
             android:layout_centerHorizontal="true"
-            android:textColor="#ffffff"
+            android:textColor="#fcfcfc"
             android:text="宝宝一周岁"
             />
         <TextView
@@ -51,7 +51,7 @@
             android:layout_centerHorizontal="true"
 
             android:layout_below="@id/tv_albumname"
-            android:textColor="#ffffff"
+            android:textColor="#fcfcfc"
             android:gravity="center"
             android:text="宝宝，希望你健康快乐的成长"/>
 

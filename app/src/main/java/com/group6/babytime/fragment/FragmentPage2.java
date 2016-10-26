@@ -54,7 +54,7 @@ public class FragmentPage2 extends Fragment {
     ListView ListVIew2;
     private NoScrollGridView gridview;
     private GridView gv_gridview;
-private BaseAdapter gv_adapter;
+    private BaseAdapter gv_adapter;
     private BaseAdapter lv_adapter;
     @Nullable
     @Override

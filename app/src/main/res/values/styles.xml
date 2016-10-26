@@ -103,4 +103,10 @@
         <item name="android:layout_height">1px</item>
         <item name="android:background">@color/border_clo</item>
     </style>
+
+
+    <style name="customTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorPrimary">#FFA500</item>//标题栏背景色
+        <item name="colorPrimaryDark">#CCa500</item>
+    </style>
 </resources>

@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
 
 import com.group6.babytime.R;
 import com.group6.babytime.fragment.BabyEventFragment;
@@ -24,6 +25,7 @@ public class FirstActivity extends Activity {
     List<String> data ;
     private TimelineAdapter timelineAdapter;
     private TitleBar titlebar;
+    private TextView tv_right;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,7 +34,17 @@ public class FirstActivity extends Activity {
 
         titlebar = ((TitleBar) findViewById(R.id.titlebar));
         titlebar.setTitle("宝宝第一次");
-        //titlebar.setTvRight("保存");
+        titlebar.setTvRight("添加");
+        //找到titlebar 右边的保存控件
+        tv_right = ((TextView) findViewById(R.id.tv_right));
+        //设置点击事件
+        tv_right.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(getApplicationContext(), AddFirstActivity.class);
+               startActivity(intent);
+            }
+        });
         titlebar.setImgLeftRes(R.drawable.arro_left);
         titlebar.setImgLeftOnClickListener(new View.OnClickListener() {
             @Override

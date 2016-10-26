@@ -38,7 +38,7 @@
             android:windowSoftInputMode="adjustResize" />
         <activity
             android:name="com.tencent.tauth.AuthActivity"
-            android:launchMode="singleTask"
+            android:launchMode="standard"
             android:noHistory="true">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
@@ -82,6 +82,7 @@
         <activity android:name=".home.AddBaby2Activity"/>
         <activity android:name=".ablumactivity.AlbumInfoActivity"/>
         <activity android:name=".ablumactivity.ImagePageActivity"/>
+
 
     </application>
 

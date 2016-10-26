@@ -265,6 +265,7 @@ public class HomeFragment extends Fragment {
 
                         //如果图片为0，图片gone
 
+
                         //点击“编辑”跳转
                         ImageView ivedit = viewHolder.getViewById(R.id.iv_edit);
                         ivedit.setTag(position);

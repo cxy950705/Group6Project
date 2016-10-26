@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="70dp"
+    android:padding="10dp">
+    <TextView
+        android:id="@+id/music_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:textColor="#fff"
+        android:layout_alignParentLeft="true"
+        android:text="如果这都不算爱"/>
+    <TextView
+        android:id="@+id/music_Artist"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/music_title"
+        android:layout_alignParentLeft="true"
+        android:layout_marginTop="6dp"
+        android:textColor="#fff"
+        android:text="张学友"/>
+    <TextView
+        android:id="@+id/music_duration"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:textColor="#fff"
+        android:layout_alignTop="@id/music_title"
+        android:text="时长：03:34"/>
+
+</RelativeLayout>

@@ -16,6 +16,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.group6.babytime.R;
+import com.group6.babytime.babyevent.xUtilsImageUtils;
 import com.group6.babytime.pojo.LogDiary;
 
 import java.util.ArrayList;
@@ -79,7 +80,7 @@ public class ReadDiaryActivity extends AppCompatActivity {
             int month = logs.getLogDate().getMonth() + 1;
             int day = logs.getLogDate().getDate();
             tvTime2.setText("" + String.valueOf(year) + "年" + String.valueOf(month) + "月" + String.valueOf(day) + "日");
-
+            xUtilsImageUtils.display(ivRiji1,"http://10.40.5.2:8080/Group6/upload/"+logs.getLogPhoto(),false);
         }
     }
 

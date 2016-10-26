@@ -4,6 +4,8 @@ import android.os.Parcel;
 import android.os.Parcelable;
 
 import java.sql.Timestamp;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Album implements Parcelable {
 	private Integer babyId;//宝宝id
@@ -13,6 +15,7 @@ public class Album implements Parcelable {
 	private Integer albumId;
 	private Timestamp albumCreatime;
 	private Integer photoNumber;
+
 	
 	
 	public Integer getPhotoNumber() {

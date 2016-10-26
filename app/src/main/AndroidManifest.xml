@@ -13,7 +13,6 @@
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
 
     <application
-
         android:name=".application.MyApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -74,14 +73,21 @@
         <activity android:name=".babyevent.YimiaoInfoActivity" />
         <activity android:name=".babyevent.StoryContentActivity" />
         <activity android:name=".babyevent.AddFirstActivity" />
-        <activity android:name=".home.ChangeBabyActivity"/>
-        <activity android:name=".home.ReadDiaryActivity"/>
-        <activity android:name=".home.WriteDiaryActivity"/>
-        <activity android:name=".home.AddBaby1Activity"/>
-        <activity android:name=".home.ChooseBabyActivity"/>
-        <activity android:name=".home.AddBaby2Activity"/>
-        <activity android:name=".ablumactivity.AlbumInfoActivity"/>
-        <activity android:name=".ablumactivity.ImagePageActivity"/>
+        <activity android:name=".home.ChangeBabyActivity" />
+        <activity android:name=".home.ReadDiaryActivity" />
+        <activity android:name=".home.WriteDiaryActivity" />
+        <activity android:name=".home.AddBaby1Activity" />
+        <activity android:name=".home.ChooseBabyActivity" />
+        <activity android:name=".home.AddBaby2Activity" />
+        <activity android:name=".ablumactivity.AlbumInfoActivity" />
+        <activity android:name=".ablumactivity.ImagePageActivity" />
+        <activity android:name=".ablumactivity.Album_Upload_Activity"></activity>
+        <activity android:name="me.iwf.photopicker.PhotoPickerActivity"
+            android:theme="@style/customTheme"
+            />
+
+        <activity android:name="me.iwf.photopicker.PhotoPagerActivity"
+            android:theme="@style/customTheme"/>
 
 
     </application>

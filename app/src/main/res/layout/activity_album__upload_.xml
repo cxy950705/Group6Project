@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/photo_publish">
+    <RelativeLayout
+        android:id="@+id/rl_top"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:orientation="horizontal"
+        android:background="#F5D336">
+        <ImageView
+            android:id="@+id/iv_back"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:src="@drawable/iv_back"
+            android:layout_centerVertical="true"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="传照片"
+            android:textSize="26sp"
+            android:textColor="#808080"
+            android:layout_centerInParent="true"/>
+        <Button
+            android:id="@+id/button"
+            android:layout_alignParentRight="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="#F5D336"
+            android:text="上传"/>
+    </RelativeLayout>
+
+
+    <EditText
+        android:id="@+id/add_content"
+        android:layout_below="@+id/rl_top"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+
+        android:enabled="true"
+        android:gravity="top"
+        android:paddingTop="35dp"
+        android:layout_margin="5dp"
+        android:inputType="textMultiLine"
+        android:minLines="8"
+        android:maxLines="10"
+        android:scrollbars="vertical"
+
+        />
+    <me.iwf.photopicker.widget.MultiPickResultView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/add_content"
+        android:id="@+id/recycler_view"/>
+    <Button
+        android:id="@+id/btn_publish"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:text="选择图片"
+        android:textColor="#808080"
+        android:textSize="16sp"
+        android:layout_below="@+id/recycler_view"
+        />
+</RelativeLayout>
